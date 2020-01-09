@@ -1,0 +1,114 @@
+.App {
+  text-align: left;
+}
+*{margin:0; list-style-type:none}
+
+.App-logo {
+  height: 40vmin;
+}
+
+.App-header {
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #09d3ac;
+}
+nav{ width:100%; min-height:25px; background:#ddd}
+nav ul{max-width:990px; margin:auto;display:flex;flex-wrap:nowrap}
+nav ul li{ padding:0 10px}
+
+.tab{ display:flex; flex-wrap:nowrap; width:100%; clear:both; background-color:#f1f1f1;font:14px/30px Arial;
+   color:#000}
+.tab li{ padding:0 10px;color:#000 }
+.tab li a{color:#000;text-decoration:none;}
+.tab li a.active{ background:#ddd; display:block}
+
+.spaceSection{ padding:0px 15px 20px ; max-width:1260px; margin:0 auto;}
+.spaceSection h2{text-align:left;font-size:16px;color:#000;padding:10px; text-transform:uppercase;}
+.spaceSection ul.list li{text-align:left; list-style-type:disc; color:#333; padding:5px  10px 0 0px;
+   font:13px/28px Arial;
+ color:#000; border-bottom:1px solid #ddd;}
+  .spaceSection ul.detail{display:flex; flex-wrap:nowrap; justify-content:space-between;}
+ .spaceSection ul.detail li{ width:25%; }
+
+
+ .elWrapper{background-color: #f2f3f5;padding:8px 14px 14px 14px;box-sizing:border-box;width:100%; }
+ .electionGray,#tallyWidgets {width:100%;display:flex;flex-wrap: nowrap;justify-content: space-between;}
+ .vidhanshaba{font:26px Bhaskar_Web_Head_Test_exp,Arial; text-align:center; margin-bottom:8px}
+ .tw50{width:49.5%;}
+ .tallySection{background-color:#fff; border-radius:6px; padding:10px; width:100%;
+  box-shadow:0 0px 4px #e2e2e2;box-sizing:border-box;}
+  .topTable{display:flex;flex-wrap:nowrap;justify-content:space-between;padding:2px 5px 5px 5px;}
+.tallyLHS{ color:#000; font:18px/34px Bhaskar_Web_Head_Test_exp,Arial; }
+.tallyRHS{color:#666;font:16px/34px Bhaskar_Web_Head_Test_exp,Arial;}
+
+
+.tallySection{background-color:#fff; border-radius:6px; padding:10px; width:100%;
+     box-shadow:0 0px 4px #e2e2e2;box-sizing:border-box;}
+.tallyTable{width:100%}
+.tallyRow.tallyBg:nth-of-type(1){background-color:#2b6884;}
+.tallyRow{clear:both; width:100%;}
+.innerRow{clear:both;width:100%;display:flex;flex-wrap:nowrap;justify-content: space-between;}
+.tallyCall.myAlliance{cursor:pointer;}
+
+.tallyRow:nth-of-type(odd){background-color:#f7f9fb;}
+.tallyRow .tallyCall{padding:3px 10px;border-right:1px solid #dedede;text-align:center;max-height:40px;min-height:40px;line-height:36px;box-sizing:border-box;color:#000; font-weight:500}
+.tallyRow.tallyBg .tallyCall{border-right:1px solid #225e78; color:
+  #fff}
+.tallyRow .tallyCall span{padding:0 0 0 3px;color:#666;}
+.tallyRow .tallyCall .upSeat{color:#2d7a2c; }
+.tallyRow .tallyCall .downSeat{color:#d9241d;}
+
+.tallyRow .tallyCall.callOne{text-align:left;width:30%;position:relative}
+.tallyRow .tallyCall.callTwo{width:20%;}
+.tallyRow .tallyCall.callThree{width:20%;}
+.tallyRow .tallyCall.callFour{width:30%;}
+
+.tallyAuto.finalPr .tallyRow .tallyCall.callOne{width:40%;}
+.tallyAuto.finalPr .tallyRow .tallyCall.callFour{width:35%;}
+.tallyAuto.finalPr .tallyRow .tallyCall.callFive{width:25%;}
+
+.tallyRow .tallyCall:nth-last-of-type(1){border-right:0px solid #225e78;}
+.tallyRow .roundSymbol{width:24px;height:24px;margin:5px 10px 0 0px;border-radius:50%; border:1px solid #c9cbca;display:inline-block;overflow:hidden; position:relative}
+.tallyRow .roundSymbol img{max-width:94%;width:100%;max-height:94%;height:100%;position:absolute;top:0;left:0;right:0;bottom:0;margin:auto;}
+.tallyRow .circle{width:26px;height:26px;border-radius:50%;position:absolute;right:5px;top:8px;
+background:#e0e0e0 url('https://i10.dainikbhaskar.com/dainikbhaskar2010/election/election2019/arrowUp.png') no-repeat 7px 10px; }
+.tallyCall.myAlliance .circle{display:block}
+.tallyRow.openAlliance .circle{ background:#e0e0e0 url('https://i10.dainikbhaskar.com/dainikbhaskar2010/election/election2019/arrowDown.png') no-repeat 7px 10px;}
+.tallyAlliance{display:none;}
+.tallyRow.openAlliance .tallyAlliance{display:block;}
+.tallyRow.openAlliance .tallyAlliance{display:block;border-top:1px solid #dedede;}
+.tallyAlliance .tallyRow .tallyCall:nth-of-type(1){padding-left:45px !important; }
+
+.tallyRow.openAlliance .tallyAlliance .tallyRow:nth-of-type(odd),
+.tallyRow.openAlliance .tallyAlliance .tallyRow:nth-of-type(even){background-color:#fff;border-bottom: 1px solid #dedede;}
+.tallyRow .tallyCall,.tallyRow.tallyBg .tallyCall{font-family:Bhaskar_Web_Head_Test_exp,Arial}
+.tallyRow.openAlliance .tallyAlliance .tallyRow .tallyCall{color:#666;}
+.tallyRow.openAlliance .tallyAlliance .tallyRow .tallyCall .downSeat{color:#c74a46;}
+.tallyRow.openAlliance .tallyAlliance .tallyRow .tallyCall .upSeat{ color:#598458;}
+.tallyRow.tallyBg .tallyCall{text-align:center;}
+.evm19{ padding:10px 0 0 0;clear:both; width:100%; color:#000; }
+.evm19 li{font:14px/18px Bhaskar_Web_Head_Test_exp; position:relative;padding:0 0 0 20px; color:#666}
+
+
+
+
+.electionNews{clear:both;width:100%;overflow-y:auto;padding-left:5px; max-height:160px}
+.electionNews::-webkit-scrollbar{width:5px}
+.electionNews::-webkit-scrollbar-track{background-color:#ddd}
+.electionNews::-webkit-scrollbar-thumb{background-color:#a7a7a7}
+.electionNews li span{color:#a32845;display:inline;}
+.electionNews li{font-family:Bhaskar_Web_Head_Test_exp,'Noto Sans';font-size:17px;line-height:22px;font-weight:500;padding:0 10px 2px 15px; position:relative; margin:0 0 10px 0;}
+.electionNews li a{color:#434343;text-decoration:none}
+.electionNews li:hover a{color:#a32845;text-decoration:none}
+.electionNews li:before{content:"";width:6px;height:6px;background:#a32845;left:0px;top:9px;position:absolute;}
+ 
+ 
