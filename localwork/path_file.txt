@@ -1,1 +1,47 @@
-﻿
+﻿$(function(){	
+	var scroll = $(document).scrollTop();
+	var headerHeight = $('#smb_header').outerHeight();
+	$(window).scroll(function(){
+	var scrolled = $(document).scrollTop();
+	if (scrolled > headerHeight){
+		$('#smb_header').addClass('off');			
+			} else {
+			$('#smb_header').removeClass('off');
+			$('#smb_header').addClass('on');
+		}	
+	if(scrolled>scroll){
+		$('#smb_header').addClass('off');
+		$('#smb_header').removeClass('on');
+		}else{
+		 $('#smb_header').removeClass('off');
+		 $('#smb_header').addClass('on');
+		}	
+		 scroll = $(document).scrollTop();	
+	}); 
+});
+
+
+
+$(window).scroll(function(){
+	var scrolled = $(document).scrollTop();
+	var scrollHeight = $(document).height();
+	var scrollPosition = $(window).height() + $(window).scrollTop();
+		if((scrollHeight-scrollPosition)/scrollHeight===0){
+					$('body').addClass('isHidden');
+				}else{}
+		if(scrolled > headerHeight){
+					$('body').addClass('isHidden');	
+			}else{
+				$('body').removeClass('isHidden');
+				}	
+		if(scrolled>scroll){
+					$('body').addClass('isHidden');
+				}else{
+					$('body').removeClass('isHidden');
+				}	
+			scroll=$(document).scrollTop();
+			
+	}); 
+});
+
+
