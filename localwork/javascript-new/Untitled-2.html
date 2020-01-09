@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Untitled Document</title>
+</head>
+
+<body>
+<div>One</div>
+<div>Two</div>
+<div>Three</div>
+
+
+<script>
+
+var promise = new Promise ((data) => {
+	
+	data(8);
+	data(2);
+	data(3)
+	}).then((elem)=>{
+		console.log("Element"+elem)
+	})
+const observable = new Observable((data) => {
+data.next(1);
+data.next(2);
+data.next(3);
+}).subscribe(element => console.log('Observable ' + element));
+
+
+
+console.log(promise);
+
+
+var v = 10;
+if(!v){
+	alert(1)
+	}else{
+	alert(null)
+}
+
+
+function Display(){
+	div= document.getElementsByTagName("div");
+	a =[];
+	for(i=0; i<div.length; i++){
+		a.push(div[i].innerHTML);
+	}
+	a.reverse()
+}
+
+	
+Display()
+function add(a){this.a = a
+return a
+} 
+//alert(add(10))
+
+</script>
+</body>
+</html>

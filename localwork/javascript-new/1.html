@@ -1,0 +1,146 @@
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Image change using on click method</title>
+<meta  name="viewport" content="width=device-width, initial-scale:1.0" >
+
+<style>
+#img_div {height: 400px;overflow: hidden;}
+.profile img{height: 100%;width: auto;}
+</style>
+</head>
+<body>
+<div class="profile">
+    <div id="img_div"> </div>
+    <button id="prev" class="btn btn-success" onclick="prev_img()">Prev</button>
+    <button id="next" class="btn btn-success" onclick="next_img()">Next</button>
+    <br> <br>
+</div>
+
+<script>
+
+var officers = [
+  { id: 20, name: 'Captain Piett' },
+  { id: 24, name: 'General Veers' },
+  { id: 24, name: 'General Veers' },
+  { id: 56, name: 'Admiral Ozzel' },
+  { id: 88, name: 'Commander Jerjerrod' }
+];
+
+myPush = [];
+ let myA = [1,2,3,4,4,4,3,7,9];
+ 
+officers.forEach(function(val,index,Array){
+	if(myPush.indexOf(val.id) == -1){
+		myPush.push(val.id)
+	}
+	return myPush
+})
+console.log(myPush+"ddfdf")
+
+//console.log(offMap)
+
+
+
+ 
+ function abc(name,callback){
+	console.log('Heigh order function');
+	callback();
+ }
+ 
+ function raushan(){
+	console.log("Raushan")
+ }
+ 
+ abc("Ashok", raushan)
+ pus =[]
+ let userIDs = [1,2,3,4,4,4,3,7,9];
+ 
+ userIDs.map(function(val,index,Array){
+	if(pus.indexOf(val) == -1){
+		pus.push(val)
+	}
+	return console.log(pus)
+
+ })
+
+
+
+abc = []
+userIDs.map(function(val,index){
+		if(abc.indexOf(val) == -1){
+			console.log(abc.push(val))
+		}
+	})
+
+
+
+
+
+promise = true;
+
+promises = new Promise(function (resolved, reject){
+	
+	if(promise == true){
+	resolved({
+		message:"I have fulfilled the Promise",
+		code:'wohoo'
+	
+	})
+	
+	}else{
+	reject("I am sorry, I cant keep my word")
+	}
+
+})
+
+const id = 'tylermcginnis'
+
+
+promises.then(function(url){
+
+	console.log(url+"data")
+
+
+})
+console.log(promises)
+
+
+  //  img path variable will define path of individual image;
+    var img_path = ["images/1.jpg", "images/2.jpg", "images/3.jpg", "images/4.jpg", "images/5.jpg", "images/6.jpg"]
+    var img_div =  document.getElementById('img_div');
+    var img_tag = document.createElement("img");
+    img_tag.className = "img-responsive";
+    img_div.appendChild(img_tag);
+    var index = 0;
+    img_tag.src = img_path[index];
+    var prev = document.getElementById('prev');
+    var next = document.getElementById('next');
+    if(index == 0){
+        prev.disabled = true;
+    }
+    function next_img(){
+        index++;
+        if(index < img_path.length){
+            img_tag.src = img_path[index];
+            prev.disabled = false;
+        } else{
+            index = 0;
+            img_tag.src = img_path[index];
+            prev.disabled = true;
+        }
+    }
+        setInterval(next_img, 2000);
+
+    function prev_img(){
+        index--;
+        img_tag.src = img_path[index];
+        if(index == 0){
+            prev.disabled = true;
+        }
+    }
+	
+	
+</script>
+</body>
+</html>

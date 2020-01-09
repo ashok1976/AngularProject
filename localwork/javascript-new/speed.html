@@ -1,0 +1,72 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Recursion</title>
+</head>
+
+<body>
+
+<div id="table"></div>
+<script>
+
+class Animal{
+	constructor(name){
+			this.speed = 5; 
+			this.name = name;
+		} 
+	run(speed){
+	 this.speed +=speed;
+		console.log(`${this.name} runs with speed ${this.speed}`);
+		
+	}
+	stop(speed){
+		this.speed=speed;
+		console.log(`${this.speed} stopped`)
+	}
+}
+// Inherit from Animal
+class Rabbit extends Animal {
+  hide() {
+    console.log(`${this.name} hides!`);
+  }
+  stop(speed){
+	this.speed = speed;
+	this.name = "Ashok kumar"
+	console.log(`my ${this.name} and car average speed is ${this.speed}`)
+  }
+}
+
+let rabbit  = new Rabbit ('White Rabbit');
+rabbit.run(5);
+rabbit.stop(5);
+rabbit.hide(); // White Rabbit hides!
+rabbit.stop(5);
+
+
+var user ={
+	name :"Ashok",
+	company :"DB Bhaskar",
+	get fullName(){
+		console.log(`${this.name} and company is ${this.company}`)
+	},
+	set fullName(value){
+		[this.name, this.company] = value.split(',');
+	}
+}
+user.fullName ='Ashok kumar, DB Bhaskar'
+user.fullName;
+var a= [1,2,3,4,5,6,7,8,9]
+function reverse(str){
+	temp =[];
+	len=str.length;
+	for(i=0; len !=0; i--{
+		console.log(str[i])
+	}
+	
+}
+reverse(a);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<body>
+<style>
+*{margin:0; padding:0; box-sizing:border-box; color:#000;}
+.tab-menu{ position: fixed; left:0; bottom:0; min-height: 25px; color:#000;  width:100% }
+.tab-menu ul{margin:0;padding:0;display:flex;width:100%}
+.tab-menu ul li{list-style-type:none;flex-grow:1;width:100%;text-align:center; min-height: 25px;}
+.tab-menu ul li a{text-decoration:none;color:#fff;padding:9px 7px;display:inline-block;width:100%;font-size:15px; line-height:25px;font-weight:500;text-transform:uppercase;text-align:left;display:flex}
+.tbl{ display: none}
+#tbl .tbl:nth-of-type(1){ display:block;}
+</style>
+<script>
+
+ let s = 20;let s = 39
+function add(){
+let s = 39
+console.log(s)
+}
+add()
+
+		console.log(s)
+
+class Users{
+	
+	constructor(name,age){
+		this.name = name;
+		this.age = age;
+	}
+	fullNames(){
+		return console.log(`${this.name} and age is ${this.age}`)
+	}
+
+}
+
+class db extends Users{
+	constructor(cast){
+		super(name);
+		this.name = name
+		 this.cast = cast;
+		 
+	}
+	supperName(){
+	
+		return console.log(`${this.name} and age is ${this.cast}`)
+	}
+}
+
+
+myage1 = new Users("Ashok kumar", 8);
+myage1.fullNames()
+b = new db('Bhaskar','mah');
+b.supperName()
+
+
+
+function user(name,age){
+	 this.name  = name;
+     this.age = age;
+	 this.fullName = function(){
+		return console.log(`${this.name} and age is ${this.age}`)
+	 }
+}
+
+myage = new user("foo", 7);
+myage.fullName();
+/*
+function fib(n){
+	a = 0; 
+}
+addData()
+function addData(){
+	console.log('Host function is defination');
+}
+var Name ="Ashok kumar";
+console.log(Name);
+console.log(Name);
+exData();
+var exData = function(){
+
+console.log('addData Host function is defination');
+}
+
+
+url = "https://electionresults.intoday.in/elections/2019/json/india/party-alliance.json";
+var eleElement = document.createElement('div');
+eleElement.setAttribute('class','election');
+document.body.appendChild(eleElement);
+var oNewP = document.createElement("div")
+oNewP.setAttribute("class", "tab-menu");
+oNewP.setAttribute('id','output')
+tbls = document.createElement('div');
+tbls.setAttribute('id','tbl')
+eleElement.appendChild(tbls)
+eleElement.appendChild(oNewP);
+http = new XMLHttpRequest();
+http.onreadystatechange  =  function() {
+    if(this.readyState == 4 && this.status){
+     res = JSON.parse(this.responseText);
+     data = res.data[0].alliance;
+     http = "";
+     http += "<ul>";
+     data.forEach(function(val,index){
+		http += '<li class="link"  onClick="openTab(\'tab_'+index+'\')"  style="background:'+val.alliance_color+'"><a href="javascript:void(0);">'+val.alliance_name+'</a></li>';
+		//http += '<li class="link"  onClick="openTab(\'tab_'+index+)"  style="background:'+val.alliance_color+'"><a href="javascript:void(0);">'+val.alliance_name+'</a></li>';
+      })
+    http += "</ul>";
+	
+
+    document.getElementById('output').innerHTML = http;
+    box = '';
+    for(key in data){
+     box +="<section class='tbl'  id='tab_"+key+"'>";
+     box += "<table width='100%'>";
+            box += "<tr>";
+            box += "<th> PARTIES </th>";
+            box += "<th> LEADS </th>";
+            box += "<th> WON </th>";
+            box += "<th> TOTAL </th>";
+            box += "</tr>";
+      subData = data[key].party_detail;
+      subData.forEach(function(val){
+            box += "<tr>";
+            box += "<td>" + val.party_name + "</td>";
+            box += "<td>" + val.current_leading + "</td>";
+            box += "<td>" + val.current_won + "</td>";
+            box += "<td>" + val.current_total + "</td>";
+            box += "</tr>"; 
+          })
+      box += "</table>";
+      box +='</section>'
+      }
+     document.getElementById('tbl').innerHTML = box; 
+     
+    
+   }
+}
+
+http.open("GET", url, true);
+http.send();
+function openTab(tabs,tag){
+
+var tabs = tabs.trim();
+console.log(tabs)
+ var tabContent = document.getElementsByClassName('tbl');
+   for(i=0; i<tabContent.length; i++){
+      tabContent[i].style.display='none';
+   }
+   var links = document.getElementsByClassName('link');
+   for(i=0; i<links.length; i++){
+      links[i].className ='grey';
+   }
+   document.getElementById(tabs).style.display ="block"
+   element.classList.toggle("highlighted");
+   console.log(tag)
+   
+}
+
+
+
+let div = document.createElement('ul');
+ div.id="output"
+ html ="";
+ for(i=0; i<party.length; i++){
+    html +='<li>'+party[i]+'</li>'; 
+}
+ div.innerHTML = html
+setTimeout(() => {
+   document.body.append(div); 
+   
+   //https://www.encodedna.com/javascript/how-to-check-if-checkbox-is-checked-or-not-using-plain-javascript.htm
+   
+   */
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<head>
+<meta harset"utf-8" />
+<title>Form </title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+<div id="container">
+ <div data-index="1">Box 1</div>
+ <div data-index="6">Box 2</div>
+ <div data-index="2">Box 3</div>
+ <div data-index="5">Box 4dfdfdasfsdfdf</div>
+ <div data-index="4">Box 5</div>
+ <div data-index="3">Box 6</div>
+</div>
+
+<script>
+var div = document.getElementById('container');
+var child = div.children;
+var p = []
+var len = div.childElementCount; //childElementCount is count the length of children
+for (var i=0;i <len; i++) {
+	var data = child[i].getAttributeNode('data-index');
+	if(data.nodeValue % 2 ===0){
+		child[i].style.color="blue";
+	}
+	var value = div.children[i].textContent; //
+	var myArray = new Array();
+	p.push(value);
+	var removeContent = child[i].innerHTML='';  
+	
+}
+var rev= p.reverse();
+p.forEach(function(v,i){
+	div.children[i].textContent=v;
+})
+
+
+str ="How are you"
+var s= str.split(" ");
+var s= str.split(" ", s.length-1);
+
+today = new Date();
+date = today.getDate()
+month = today.getMonth();
+year = today.getFullYear();
+if(month<10){
+month ="0"+today.getMonth()
+}else{
+month =today.getMonth()
+}
+
+//console.log(date+"/"+month+"/"+year)
+function diffirence(n){
+	if(n> 19){
+		return (n-19 ) * 3
+	}else{
+	return (19-n);
+	}
+}
+diffirence(15)
+var strings ="Write a JavaScript program to remove a character at the specified position of a given string and return the new string."
+ function removes(pos,str){
+	var str = str.split(" ");
+	var myArray = new Array();
+	var	myArray = str;
+	var dataStore =  myArray.splice(0,pos);
+	var remove = myArray.splice(1,myArray.length);
+		bb = dataStore.concat(remove).join(" ");
+		return bb
+}
+console.log(removes(3,strings))
+
+function middle(str){
+if(str % 2 !=0){
+	len=str.length; 
+	mid = ((str.length)+1)/2
+	console.log(mid)
+	return str.slice(mid-2, mid+1)
+}
+
+}
+console.log(middle('abcabc8'))
+var size1 = "Write a JavaScript program to remove.. Ashok. Ashok. Ashok"
+var size2 = "Write a JavaScript program to remove. Ashok"
+function concatenate(len, len1){
+	len = len.split(" ");
+	len1 = len1.split(" ");
+	if(len.length == len1.length){
+		return len;
+		}else{
+		if(len.length > len1.length){
+			return len.splice(0,len1.length)
+		}else{
+		 return len.splice(0,len.length);
+		}
+	}
+}
+console.log(concatenate(size1, size2))
+
+function concateBoth(str1, str2){
+	m = Math.min(str1.length, str2.length);
+
+
+	  return str1.substring(str1.length - m) +"::"+ str2.substring(str2.length - m);
+
+	
+
+}
+console.log(concateBoth("Python", "JS"))
+
+
+//Write a JavaScript program to check two given numbers and return true if one of the number is 50 or if their sum is 50;
+
+function checkNumber(n,n2){
+
+if( n == 50 || n2 ==  50 || (n+n2 == 50)){
+	return console.log(true+"==============")
+}else{
+return console.log(false+"=====-=========")
+}
+
+}
+checkNumber(12,38)
+
+// Write a JavaScript program to compute the sum of the two given integers. If the two values are same, then returns triple their sum.  Go to the editor
+
+
+function checkTriple(n,n2){
+
+if(n == n2){
+	return console.log((n+n2)*3+"==============")
+}else{
+return console.log(false+"=====-=========")
+}
+
+}
+checkTriple(12,12)
+var today = new Date();
+ var month = today.getMonth();
+ var Date = today.getDate();
+ var fullYear = today.getFullYear();
+ month = (month<10) ? "0"+ month : month;
+ Date = (Date<10) ? "0"+ Date : Date
+ fullYear = (fullYear % 4 == 0) ? fullYear +": Leaf Years" : fullYear
+  console.log(month+ "-"+ Date + "-"+ fullYear)
+  
+  
+  
+  var num =[1,2,3,4,5,6,7,8,9,10]
+  var nlen = num.length;
+	sum =0;
+		num.reduce((val,acc) => {
+			 sum = (val+acc);
+	
+		})
+ console.log(sum);
+ 
+ var objAssian = {
+	age: 1,
+	name: "Gokul",
+	location: {
+		city: "Bangalore",
+		state: "Karnataka",
+		place:[
+				{
+					placename: "BTM",
+					pincode: 560068,
+					shopname: "KFC",
+					landmark: "Near HSR Bridge"
+				},
+				{
+					placename: "Silkbarod",
+					pincode: 56006,
+					shopname: "CoffeeDay",
+					landmark: "Near Silkboard Bridge",
+					country: "India"
+				},
+				{
+					placename: "Marathalli",
+					pincode: 56068,
+					shopname: "A2B",
+					landmark: "Near Marathalli Bridge"
+				}
+				]
+	}
+};
+
+var obj = {
+	name:"Ashok",
+	age : 35,
+	pincode: 201010
+}
+Object.prototype.clone =  function(){
+	newDetail = {};
+	for(key in this){
+		if(this.hasOwnProperty(key)){
+			newDetail [key] = this[key]
+			}
+		}
+		return newDetail;
+}
+myObj = obj.clone()
+myObj.name="Sanjay";
+if(myObj.hasOwnProperty('name')){
+	myObj.name="Ashok kumar";
+}else{
+alert(1)
+}
+console.log(myObj.name+"------"+ obj.name);
+
+
+comObj = {a:1, b:2,c:[1,2,3]}
+comObjNew = {a:1, b:2,c:[1,2,3]}
+
+console.log('===='+Object.keys(comObj))
+
+
+
+function equalObject(a, b){
+	if(a == b){
+		return true
+	}else if( typeof a ==='object'  && typeof b ==='object'  && Object.keys(a).length  && Object.keys(b).length){
+		return true  +"::"+ Object.keys(a)
+	}else{
+		return false
+	}
+}
+
+console.log(equalObject(comObj,comObjNew))
+
+
+
+obj = {a:1, b:2}
+copy = Object.assign({},obj);
+
+obj_1={a:1, b:2, c:{z:12}}
+clone = Object.assign({}, obj_1)
+console.log(clone)
+console.log(JSON.stringify(clone.c.z))
+
+/*
+function timeAlgorithm(){
+var d = new Date();
+var n = d.getTime();
+console.log('today'+n)
+}
+timeAlgorithm()
+*/
+function outerFunction(name,age){
+
+	var a=1;
+	 function abc(){
+		this.name = name;
+		this.age = age;
+	}
+	return abc
+}
+console.log(outerFunction('Ashok kumar',22))
+
+
+
+function curry(a){
+	return function(b){
+		return function(c){
+			return a+b+c;
+		}
+	}
+	return
+}
+
+var x = curry(5)
+console.log(x.curry())
+
+
+</script
+
+</body>
+</html>

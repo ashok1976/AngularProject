@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Promise </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{ margin:0; padding:0; list-style:none}
+li{ margin-bottom:10px;  padding:0 10px}.
+.checkbox{ padding:10px;}
+.checkbox input{ }
+#checked{ margin:10px;}
+label{ display:block; margin-top:10px;}
+label input{ margin:3px 5px 0; float:left}
+.div{margin-bottom:20px; clear:both; padding:0 10px}
+</style>
+</head>
+<body>
+
+ <div class="container">
+ <div class="row">
+ <div class="col">.COL 1</div>
+ <div class="col">.COL 2</div>
+ <div class="col">.COL 3</div>
+ <div class="col">.COL 4</div>
+ <div class="col">.COL 5</div>
+ </div>
+ <div class="row">
+ <div id="exampleDiv">Example DIV</div>
+ </div>
+ </div>
+
+
+
+
+
+
+<div id="checked" class="div">
+<br><br><input id="all" type="checkbox" onclick="allCheck();"  value="Check All">Check All 
+ <input type="checkbox" onclick="unCheckAll();" >Uncheck All <br>
+<label> <input class="myAtt" type="checkbox" name="chek[]"  value="A">Checkbox A </label> 
+<label> <input class="myAtt" type="checkbox" name="chek[]"  value="B">Checkbox B </label> 
+<label> <input class="myAtt" type="checkbox" name="chek[]"  value="D">Checkbox D </label> 
+<label> <input class="myAtt" type="checkbox" name="chek[]"  value="C">Checkbox C </label>
+</div>
+
+<div id="aform" class="div">
+<form id="aform">
+<select id="mymenu" size="1">
+<option value="nothing" selected="selected">Select a site</option>
+<option value="http://www.dynamicdrive.com">Dynamic Drive</option>
+<option value="http://www.codingforums.com">Coding Forums</option>
+<option value="http://www.cssdrive.com">CSS Drive</option>
+</select>
+</form>
+<br><br><br>
+  <select id="mySelect" size="3" multiple="multiple">
+        <option value="Apple" />Apple
+        <option value="Pear" />Pear
+        <option value="Peach" />Peach
+    </select><button id="get">ge<divetail</button
+
+>
+</div>
+
+
+Sum of the values can't exceed 10. 
+
+
+<div id="msg"></div>
+
+
+<table class='table table-striped' >
+  
+
+<div ><input type=checkbox name ="box[]" class='ckb' value=1 onclick='chkcontrol(0)';> Value = 1 </<div>
+<div ><input type=checkbox name ="box[]" class='ckb' value=2 onclick='chkcontrol(1)';> Value = 2 </<div>
+<div ><input type=checkbox name ="box[]" class='ckb' value=3 onclick='chkcontrol(2)';> Value = 3 </<div>
+<div ><input type=checkbox name ="box[]" class='ckb' value=4 onclick='chkcontrol(3)';> Value = 4 </<div>
+<div ><input type=checkbox name ="box[]" class='ckb' value=5 onclick='chkcontrol(4)';> Value = 5 </<div>
+<div ><input type=checkbox name ="box[]" class='ckb' value=6 onclick='chkcontrol(5)';> Value = 6 </<div>
+<div ><input type=checkbox name ="box[]" class='ckb' value=7 onclick='chkcontrol(6)';> Value = 7 </<div>
+<div ><input type=checkbox name ="box[]" class='ckb' value=8 onclick='chkcontrol(7)';> Value = 8 </<div>  
+</div>
+
+<div class="div">
+<h3>Favorite Color</h3>
+	<label><input type="radio" name="fav_color" value="Blue" onclick="analyzeColor(this.value);"> Blue </label>
+	<label><input type="radio" name="fav_color" value="Red" onclick="analyzeColor(this.value);"> Red </label>
+	<label><input type="radio" name="fav_color" value="Green" onclick="analyzeColor(this.value);"> Green </label>
+	<label><input type="radio" name="fav_color" value="None" onclick="analyzeColor(this.value);"> None</label>
+</div>
+<script>
+var col = document.querySelectorAll('.col');
+	col.forEach((val,index)=> 
+	console.log(`${val.innerHTML} :: ${index}`)
+	)
+console.log(exampleDiv)
+
+var arr = [10, 20, 30, 40, 50, 60, 70, 80, 90, 100];
+num = arr.length-1;
+
+
+function generateOTP(){
+digital = '0123456789'
+
+otp ="";
+for(i=0; i<4; i++){
+	otp += digital[Math.floor(Math.random() * 10)]
+
+}
+return otp
+}
+console.log("OTP of 4 digits: " + generateOTP()) 
+
+
+const fruits = {  apple: 28,  orange: 17,  pear: 54}
+keys = Object.keys(fruits)
+console.log(keys)
+
+
+
+
+
+
+
+function analyzeColor(myColor){
+	switch (myColor){
+		case "Blue":
+			alert('Just like the sky! '+myColor)
+			break
+		case "Red":
+			alert('Just like shiraz! '+myColor)
+			break
+		case "Green":
+			alert('Just like the nature !'+myColor)
+			break
+		case "None":
+			alert('Just like the sky! '+ myColor)
+			break
+	}
+}
+
+
+function allCheck(){
+ var inputs = document.querySelectorAll('.myAtt');
+  len= inputs.length;
+	for(i=0;i<len;i++){  
+	inputs[i].checked = true
+	}
+
+}
+
+function unCheckAll(){
+	inputs = document.querySelectorAll('.myAtt');
+	len = inputs.length;
+	for(i=0; i<=len; i++){
+		inputs[i].checked = false;
+		document.getElementById('all').checked = false;
+		}
+}
+
+var overall = document.querySelectorAll('.myAtt');
+for(i=0; i< overall.length; i++){
+	overall[i].addEventListener("click", allbox);
+
+}
+function allbox(){
+	var counter = 1; 
+	var inputs = document.querySelectorAll('.myAtt');
+	len = inputs.length;
+		for(i=0; i<inputs.length; i++){
+		if(inputs[i].checked){
+			counter++	
+		}
+	}
+	if(counter === len +1){
+		document.getElementById('all').checked = true
+	}else if(counter < len +1  && counter > 1){
+		document.getElementById('all').checked = false
+	}else{
+		document.getElementById('all').checked = false
+	}
+}
+
+
+
+
+selectMenu = document.getElementById('mymenu');
+
+selectMenu.onchange = function(){
+	 var chosenoption = this.options.length;
+	for(i=0; i< chosenoption; i++){
+			if( this.options[i].value != 'nothing'){
+				var Index =this.options[i].value
+				console.log(Index);
+			}
+		}
+	}
+
+	var	detail = document.getElementById('get');
+	function details(){
+		var mySelect = document.getElementById('mySelect');
+			
+			for(i=0; i<mySelect.options.length; i++){
+				var isSelect = mySelect.options[i].selected;
+				isActive  = (isSelect ) ? 'is Selected' : 'not Selected';
+				console.log(isActive)
+			}
+		
+		
+	
+		
+	
+		}
+	detail.addEventListener("click", details);
+	
+	
+	
+	
+	
+	
+	function chkcontrol(j){
+		
+		val = document.querySelectorAll('.ckb');
+		sum = 0;
+		len = val.length;
+		for(i=0; i<len; i++){	
+			if(val[i].checked){
+					sum += parseInt(val[i].value);
+				}
+		if( sum > 10 ){
+				 document.getElementsByName('box[j]').value.checked = false ;
+				}
+		
+		}
+		
+		document.getElementById('msg').innerHTML = sum
+		
+		
+			
+		
+	}
+	
+var script = new Array ();
+script[0] = "PHP";
+script[1] = "PP";
+script[2] = "Javascript";
+script[3] = "HTML";
+script[4] = "ASP";
+
+document.write(script.toString())
+	console.log(script.lastIndexOf('PP'))//2
+	
+	
+
+
+
+var strArray = [ "w", "w", "w", "e", "i", "u", "r","r"];
+	myPush = [];
+	
+ strArray.filter(function(val,index){
+		if(strArray.indexOf(val) != index){
+			myPush.push(val)
+		}
+
+	})
+console.log(myPush)
+	
+console.log(strArray.sort()	)
+	
+ current =0; 
+ ctn = 0;
+
+
+
+</script>
+
+
+
+
+
+</body>
+</html>

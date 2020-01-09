@@ -1,0 +1,188 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Recursion</title>
+</head>
+
+<body>
+
+
+
+<!--<div class="wrap">
+  <div class="box">
+    <h2>Wes Bos</h2>
+    <p class="social">@wesbos</p>
+  </div>
+</div>
+<div class="wrap">
+  <div class="box opening">
+    <h2>Wes Bos</h2>
+    <p class="social">@wesbos</p>
+  </div>
+</div>-->
+
+<script>
+str= [10,22,30,8]
+function median(values){
+	
+  values.sort(function(a,b){
+    return a-b;
+  });
+  half= Math.floor(values.length/2);
+  if(values.length/2){
+	return 1
+  }
+  
+  if(values.length % 2){
+	return values[half];
+  }else{
+	return values[half-1]+values[half]
+  }
+  
+ }
+
+
+console.log(median(str))
+
+
+
+function countDown(n) {
+  if(n <=1){  	return 1  }
+  
+  	 return n * countDown(n - 1);
+  
+}
+console.log(countDown(6))
+
+
+var string = "Ashok"
+function reverString(str){
+	
+	if(str.length==0){return str 	}
+	console.log(str.substr(1)+"======")
+	return  document.write(reverString(str.substr(1)))
+}
+
+console.log(reverString(string))
+counter = 0;
+
+
+function isPrime(number){
+	for (var counter = 0; counter<number; counter++) {
+		var notPrime = false;
+		for (var i = 2; i <= counter; i++) {
+			 if (counter % i===0 &&  i !=counter) {
+				notPrime = true;
+			}
+		}
+		if (notPrime === false) {
+		   console.log(counter);
+		}
+	}
+}
+isPrime(10)
+
+
+function isPrime(n){
+	flag= 0;
+	for(i=2; i<n; i++){
+		if(n % i === 0){
+			flag=1;
+	}
+}
+	if(flag==0){
+		return true;
+			}else{
+			  return false;
+	}
+}
+
+
+var primeNum = [];
+var NonPrimeNum = [];
+function AllPrime(arg){
+	for(j=2;j<=arg;j++){
+		if(isPrime(j)==true){
+		primeNum.push(j);
+		}else{
+			NonPrimeNum.push(j);
+		}
+}
+
+console.log('Prime Number:'+primeNum);
+console.log('Non Prime Number:'+NonPrimeNum);
+}
+AllPrime(50);
+
+/*
+
+n0  = 0 * (0-1); ------------- 0
+n1 	= 1 * (1-1); ------------- 1
+n2 	= 2 * (2-1); ------------- 2
+n6	= 3 * 2 = 6 ---------------3
+n12 = 4 * 6; ------------- 24
+n5 	= 5 * 24; -------------  120
+n6 	= 6 * 120; -------------  720
+
+
+
+
+//24
+
+
+//7
+*/
+
+name= 'Bhaskar.com'
+var cat = {
+   name: "Ashok Kumar",
+   last: 'Panthari',
+   age: 42,
+	printInto: function(){
+		console.log('My name is '+ this.name +" "+this.last + " & "+ this.age + " years old.")
+			nestedFunction = function(){
+				console.log('My name is '+ this.name )
+			},
+			nestedArrow = () => {
+				console.log('My name is '+ this.name )
+			},
+			nestedFunction();
+			nestedFunction.call(this);
+			nestedArrow()
+	},
+  printInto1:function(){
+ 		console.log(this.name)
+   	}
+}
+cat.printInto()
+
+
+
+
+
+
+
+
+
+const point2D = {x: 1, y: 2};
+const anotherPoint3D = {x: 5, z: 4, ...point2D};
+//console.log(anotherPoint3D); // {x: 1, y: 2, z: 4}
+
+
+function restParameter(...theArgs){
+	return theArgs.reduce((total, amount) => 
+		total + amount
+	)
+}
+console.log(restParameter(2,2,23))
+
+let displayTags = function (postId, ...tags) {
+    //console.log(tags);
+};
+displayTags(25, 'php', 'javascript', 'laravel');
+
+</script>
+</body>
+</html>

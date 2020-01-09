@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+label{width:100%; display:block; font:12px/25px Arial}
+</style>
+<style>
+button {font-size: 100px; }
+.on {background: #ffc600;}
+</style>
+
+</head>
+<body>
+
+<div id="results"></div>
+<form  method="post" id="myForm">
+<div class="field">
+<label>Name </label>
+<input type="text" name="name" id="name" />
+<div class="error" id="errorname"></div>
+</div>
+<div class="field">
+<label>Last Name </label>
+<input type="text" name="lastname" id="lastname" />
+<div class="error" id="errorlastname"></div>
+</div>
+<div class="field">
+<label>E-mail </label>
+<input type="text" name="mail" id="mail" />
+<div class="error" id="errormail"></div>
+
+</div>
+<div class="field">
+<input type="submit" value="submit" id="submit" onclick="formValidation()" />
+</div>
+</form>
+
+
+<div>
+
+    <button id="btn">Learn more about Einstein</button>
+    <div id="bio"></div>
+</div>
+
+
+<button id="push">Push me</button>
+
+<script>
+
+
+btn - document.getElementById('push');
+btn.addEventListener("click",function(){
+this.classList.toggle('on')
+	
+)}
+
+
+var pirates = [
+	[2010, 57, 105],[2009, 62, 99],[2008, 67, 95],[2007, 68, 94],[2006, 67, 95],[2005, 67, 95],[2004, 72, 89],[2003, 75, 87],[2002, 72, 89],
+	[2001, 62, 100],[2000, 69, 93],[1999, 78, 83],[1998, 69, 93],[1997, 79, 83],[1996, 73, 89],[1995, 58, 86],[1994, 53, 61],[1993, 75, 87]
+];
+	arr=[]
+	var len=pirates.length
+	for(i=0; i <len; i++){
+		for(j=0; j<pirates[i].length; j++){
+			if(i < 5){
+			document.write(pirates[i][j]+"<br>")
+			}
+		}
+}
+
+for(i=0; i<10; i++){
+	for(j=0; j<i-1; j++){
+		document.write("#");
+	}
+	document.write("<br>")
+}
+var grid2D = [[11, 12, 13],[14, 15, 16],[17, 18, 19],[11, 12, 13] ]
+grid2D.forEach((element,index,array)=>{
+	element.forEach((element,index,array)=> {
+		//console.log(index+"::"+element)
+	})
+})
+
+var set = new Set(grid2D)
+set.forEach((element,index,array)=>{
+	element.forEach((element,index,array)=>{
+	 if(index == 1){
+	//	console.log(element+"::::")
+	 }
+	})
+	
+
+})
+
+
+duplicate = [1,2,3,1,5,4,2,1,8,9,11];
+duplicate.sort();
+duplicate.filter((val,index,array)=>{
+	if(array.indexOf(val) != index){
+		//console.log(val+":::::::;")
+	}else{
+	
+	}
+
+})
+
+let john = { name: "John" };
+let mary = { name: "Mary" };
+
+sets = new Set();
+sets.add(john);
+sets.add(mary) 
+sets.size//2
+for(user of sets){
+	//console.log(user.name) // Jone  Mary
+}
+let iterator = new Set(["oranges", "apples", "bananas"]);
+
+for(key of iterator){
+	//console.log(key)  //oranges,apples,bananas
+}
+
+iterator.forEach((element,index,array)=>{
+	//console.log(array)
+})
+
+var familyArray = ["Marge", "Homer", ["Bart", "Lisa", "Maggie"]];
+function ArrayDimention(data){
+r=[];
+r.push(data[2])
+for(i=0; i<r.length; i++){
+	r[i]
+}
+
+return r
+
+}
+ console.dir(ArrayDimention(familyArray))
+  
+    
+
+	var btn = document.getElementById('btn');
+	var bio = document.getElementById('bio');
+	var request = new XMLHttpRequest();
+	request.onreadystatechange = function() {
+	if(request.readyState === 4) {
+	bio.style.border = '1px solid #e8e8e8';
+	if(request.status === 200) {
+
+	bio.innerHTML = request.responseText;        
+	} else {
+	bio.innerHTML = 'An error occurred during your request: ' + request.statusText;
+		}
+	 }
+	}
+request.open('Get', 'bio.txt');
+btn.addEventListener('click', function() {
+    this.style.display = 'none';
+    request.send();
+  });
+  
+;
+
+
+
+
+
+</script>
+
+
+
+<form>
+<textarea name="limitedtextarea"  onKeyDown="charctorCount(this.form.limitedtextarea,this.form.countdown,10);" 
+onKeyUp="limitText(this.form.limitedtextarea,this.form.countdown,10);"></textarea>
+<input readonly type="hidden"   name="countdown" id='count'>
+<div id="count1"> </div>
+
+</div>
+</form>
+
+<ul id="success"> </ul>
+
+<ul id="duplicate" onClick="f.getFoodName()"> price </ul>
+
+<script>
+/*
+function restParameter(...restArgs){
+	var s1 = restArgs.sort()
+	s1.forEach(function(v,i){
+		document.write(v+ "</br>")
+	})
+}
+restParameter(11,6,2,3,4,5);
+function product(name,price){
+	this.name = name;
+	this.price = price;
+}
+function food(name,price,locations){
+	product.call(this,name,price);
+	this.locations = locations;
+	this.getFoodName = function(){
+		this.name +" and price "+this.price +":: "+ this.locations
+	
+	}
+}
+var f = new food('Rice',20,'Noida');
+console.log(f.getFoodName())
+
+function alangrom(s1,s2){
+	if(s1.length != s2.length){
+		console.log('length not equal string1 and string 2');
+		return false;
+	}
+	 const arraySort1 = s1.split('').sort();
+	 const arraySort2 = s2.split('').sort()
+	for(i=0; i<arraySort1.length; i++){
+		if(arraySort1[i] == arraySort2[i]){
+			//console.log('equal ')
+			return false;
+			}else{
+			//console.log('not equal ')
+		return true
+		}
+	}
+}
+alangrom('fabcde', 'fa5cde')
+
+function addSquares(a,b){
+	function square(num){
+	 return num * num 
+	}
+	return square(a) +  square(b);
+	
+}
+
+
+console.log(addSquares(4,3));
+
+function message(){
+		this.num
+}
+ //message();
+ obj={num:10}
+ message.call(obj);
+ message.apply(obj);
+ 
+function parameter(a,b,c){
+	console.log(arguments.length+"::"+arguments[3])
+	return a+b+c
+
+}
+console.log(parameter(1,2,3,4)) // Logs 6 (1 + 2 + 3, ignores 4)
+console.log(parameter(1,2)) // Logs NaN because by default if a corresponding argument is missing, it is set to undefined. 
+							// parameter3 is assigned undefined and so 1+2+undefined = NaN
+const myAr = [5, 6, 50, 1, -5];
+myAr.sort(function(a,b){
+	return a-b
+})
+
+function median(arr){
+	var median =0;
+	mid= Math.floor(arr.length / 2);
+	console.log(mid)
+	if( arr.length % 2 !==0){
+		median = arr[mid]
+	}else{
+		
+		median = (arr[mid-1]+ arr[mid])/2
+	}
+	console.log(arr[mid-1]+"sssssss")
+	/*
+	sum=0;
+	len= arr.length
+	for(i=0; i<len; i++){
+		median += arr[i]
+	}
+	sum = Math.round(median/len)
+	return console.log(median)
+}
+
+median(myAr)
+
+const myArr = [7, 0, -4, 5, 2, 3,2,1];
+function sunTwo(arr,target){
+	result =[]
+	for(i=0; i<arr.length; i++){
+		for(j=i+1; j<arr.length; j++){
+			if(arr[i]===target-arr[j]){
+			result.push(arr[i],arr[j])
+			}
+		}
+	}
+return result //console.log(result)
+
+}
+sunTwo(myArr,4)
+
+
+var strSplit = "The quick brown fox jumpedfdfd over the lazy dog"
+
+function longWord(str){
+strSplits = str.split(' ');
+longestWord =0;
+for(i=0; i<strSplits.length; i++){
+	if(strSplits[i].length > longestWord){
+		longestWord = strSplits[i].length;
+	}
+	
+}
+return longestWord
+
+}
+longWord(strSplit)
+
+function pyramid(n){
+	for(i=1; i<n; i++){
+		for(j=1;j<i;j++){
+			document.write( j )
+			if(i==j){
+				 continue;
+			}else{
+			document.write('')
+			}
+		}
+	document.write("<br>");
+	}
+}
+
+pyramid(7)
+
+
+function charctorCount(limitField,limitCount,limitNum){
+	if(limitField.value.length > limitNum){
+		limitField.value = limitField.value.substring(0, limitNum);
+		}else{
+		limitCount.value = limitNum - limitField.value.length
+		document.getElementById('count').innerHTML = count1;
+		console.log("---"+limitCount)
+	}
+
+}
+
+function mean(str){
+	len = str.length;
+	sum =0;total=0;
+	for(i=0; i<len; i++){
+		sum += str[i]
+	}
+	total = sum/len;
+	return total;
+	
+}
+console.log(mean([1,2,3,4,5,6,7,8])+" Mean")
+
+var mstr= [10, 11, 24, 13, 15, 16, 23, 26]
+
+
+
+let values = [2, 56, 3, 41, 0, 4, 100, 23];
+values.sort( function(a,b) {return a - b;} );
+
+console.log(values)
+
+
+myObj = {name :'Ashok',age:24,subject:'English'}
+
+console.log(Object.values(myObj)) //["Ashok", 24, "English"]
+
+
+
+function myFunction(a,b) {
+    return console.log(a * b)
+}
+function Human(){};
+Human.prototype.name = name;
+Human.prototype.sayName = function(){
+	return this.age;
+}
+Human.prototype.firstName="Ashok kumar";
+Human.prototype.lastname="Panthari";
+Human.prototype.age = 42;
+returnName = new Human("Ashok kumar");
+returnName1 = new Human("Ashok kumar");
+console.log(returnName.name)
+console.log(returnName1.sayName)
+
+var employee = [
+	{id:1,firstName:'Ashok',lastName:'kumar',graduate:'HNB Garhwal University',years:1999},
+	{id:2,firstName:'Roshan',lastName:'kumar',graduate:'HNB Garhwal University',years:1992},
+	{id:3,firstName:'Sanjay',lastName:'kumar',graduate:'HNB Garhwal University',years:1994},
+	{id:4,firstName:'Jitendra',lastName:'Yadev',graduate:'145 HNB Garhwal University',years:2008},
+	{id:3,firstName:'Sanjay',lastName:'kumar',graduate:'HNB Garhwal University',years:1994},
+	{id:1,firstName:'Ashok',lastName:'kumar',graduate:'HNB Garhwal University',years:1999},
+
+
+];
+var data={};
+function Human(id,firstName,lastName,graduate,years){
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.graduate = graduate;
+	this.years= years;
+	this.id=id;
+}
+
+Human.prototype.Details = function(){
+	return alert( this.id +" ::=>  My name is " + this.firstName + " " + this.lastName + " &  graduate from "+this.graduate+" in "+ this.years+" :: "+this.nationality);
+}
+//var stringify = JSON.stringify(employee);
+//var parse = JSON.parse(stringify);
+html ="";
+html1 ="";
+Human.prototype.nationality ='Indian'
+unique_array =[]
+for(x in employee){
+
+data[x]= new Human(employee[x].id,employee[x].firstName, employee[x].lastName,employee[x].graduate,employee[x].years, employee[x].nationality);
+	for(i=0;i<x.length; i++){
+		if(unique_array.indexOf(data[x].id) == -1){
+           unique_array.push(data[x].id)
+			html +='<li onCLick="data['+x+']'+'.Details()">'+data[x].firstName+'</li>';
+        }
+	}
+}
+document.getElementById('success').innerHTML =html;
+//console.log(Human.prototype);
+
+const user = {id: 229,name: 'John',email:'john@awesome.com'};
+function replaces(key,value){
+	if(key == 'email'){
+		return 'ashok.its1@gmail.com';
+	}else{
+	return value;
+	}
+}
+newUser = JSON.stringify(user,replaces);
+//console.log(newUser) //{"id":229,"name":"John","email":"ashok.its1@gmail.com"}
+
+var a = [1,4,7,6], 
+count = a[a.length-1]
+
+var missing = [];
+for ( var i = 1; i <= count; i++ ) {
+	if (a.indexOf(i) == -1) {
+		missing.push(i);
+	}
+}
+missing.toString()
+
+myArray = [1,2,4,5,6]
+function getMissingNumber(arr){
+	n = arr.length;
+	Asum = n*(n+1)/2;
+	
+	
+	console.log(Asum)
+}
+getMissingNumber(myArray)
+
+
+
+
+function getMissing(){
+	var numbers = [0,1,3,4,5,7,8]; // Missing 2,6
+	lastNumber = numbers[numbers.length-1]
+	asum = lastNumber * (lastNumber+1)/2;
+	console.log(asum)
+	sum =0;
+	for(i=0; i<numbers.length; i++){
+		sum +=numbers[i]
+	}
+	console.log(asum - sum)
+}
+getMissing();
+
+
+var numbers = [0,1,3,4,5,7,8]; // Missing 2,6
+var missing = [];
+
+// Find the missing array items
+for ( var i = 0; i < numbers.length; i++ ) {
+
+    if ( (numbers[i+1] - numbers[i]) > 1 ) {
+        missing.push( numbers[i+1] - numbers[1] );   
+    }
+}
+console.log(missing)
+var rnumber = ["15",2,3,4,5,"Ashok",7]; // Missing 2,6
+
+function reverse(str){
+	num = str[str.length-1]
+	 for(i=num; i>=0; i--){
+			str[i]
+	 }
+}
+
+reverse(rnumber)
+
+
+// Output result
+
+mySize =[1,2,3,4,5,6,7,8,9]
+function chunkArray(myArray,size){
+	var arrayLength = myArray.length;
+    var tempArray = [];
+    for(i=0;i<arrayLength; i+=size){
+		tempArray.push(myArray.slice(i, i + size));
+	}
+return tempArray;
+}
+
+console.log(chunkArray(mySize,4))
+
+function whileMethor(myArray, size){
+	var tempArray=[]
+	while(myArray.length){
+	tempArray.push(myArray.splice(0,size))
+	
+	}
+	return tempArray;
+	
+}
+console.log(whileMethor(mySize,4));
+
+
+function deleteArray(arr,arr){
+ var remain = new Array();
+  for(var i in arr){
+    if(arr[i] == indexToDelete){
+      continue;
+    }
+    remain.push(arr[i]);
+  }
+  console.log(remain)
+}
+myArray = ['a', 'b', 'c', 'd'];
+deleteArray(myArray, 0);
+
+var employeeDetailsOriginal = {name:'Ashok kumar',Profession:'software'}
+var employeeDetailsDuplicate = employeeDetailsOriginal;
+employeeDetailsDuplicate.Profession ="Software's Developer"
+console.log(employeeDetailsOriginal.name)
+
+
+employeeDetailsDuplicate = {name:employeeDetailsOriginal.name}
+employeeDetailsDuplicate.name="sanjay"
+console.log(employeeDetailsDuplicate.name)
+
+
+*/
+
+</script>
+</body>
+</html>

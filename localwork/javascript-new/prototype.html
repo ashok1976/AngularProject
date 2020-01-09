@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<div id="success">Detail</div>
+
+<script>
+/*
+function myFunction(a,b) {
+    return console.log(a * b)
+}
+function Human(){};
+Human.prototype.name = name;
+Human.prototype.sayName = function(){
+	return this.age;
+
+}
+returnName = new Human("Ashok kumar");
+returnName1 = new Human("Ashok kumar");
+console.log(returnName.name)
+console.log(returnName1.sayName)
+*/
+function Human(firstName,lastName,education){
+	this.firstName = firstName;
+	this.lastName = lastName;
+	this.education = education;
+}
+
+
+/*
+Human.prototype.firstName="Ashok kumar";
+Human.prototype.lastname="Panthari";
+Human.prototype.age = 42;
+*/
+join = new Human('Ashok','kumar','Graduation')
+
+Human.prototype['age'] = 43;
+Human.prototype.school ='NaugaonKhal';
+Human.prototype.Details = function(){
+	return "My name is " + this.firstName + " " + this.lastName + " & "+this.age+" years old ";
+}
+console.log(join)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,277 @@
+decorator => A decorator is a function that adds metadata to a class,its members, or its method arguments.There are four main types:
+Class decorators => e.g. @Component and @NgModule
+Property decorators for properties inside classes =>  e.g. @Input and @Output
+Method decorators for methods inside classes => e.g. @HostListener
+Parameter decorators for parameters inside class constructors => e.g. @Inject
+Each decorator has a unique role.
+
+NgModule=> The @NgModule is a class marked by the @NgModule decorator work with @NgModule decorator function and takes a metadata object that tells to Angular “how to compile and run module code”.
+The @NgModule main use to simplify the way you define and manage the dependencies in your applications and using @NgModule you can consolidate different components and services into cohesive blocks of functionality.
+The @NgModule is a way to organize your dependencies for
+1.      Compiler
+2.      Dependency Injection
+
+What are the @NgModule Metadata Properties?
+The @NgModule decorator identifies AppModule as a NgModule class.
+The @NgModule takes a metadata object that tells Angular how to compile and launch the application.
+
+The NgModule’s important metadata properties are as follows –
+
+Providers – A list of dependency injection (DI) providers and it defines the set of injectable objects that are available in the injector of this module.
+Declarations - A list of declarable classes, components, directives, and pipes that belong to this module. The compiler throws an error if you try to declare the same class in multiple modules.
+Imports - A list of modules and it used to import the supporting modules like FormsModule, RouterModule, CommonModule, or any other custom made feature module.
+Exports - A list of declarable components, directives, pipes, and modules that an importing module can be used within a template of any component.
+EntryComponents - A list of components that should be compiled when this module is defined. By default, an Angular app always has at least one entry component, the root component, AppComponent.
+A bootstrapped component is an entry component that Angular loads into DOM during the application launch and other root components loaded dynamically into entry components.
+Bootstrap – A list of components that are automatically bootstrapped and the listed components will be added automatically to entryComponents.
+Schemas - Defines a schema that will allow any non-Angular elements and properties.
+Id – The Id used to identify the modules in getModuleFactory. If left undefined, the NgModule will not be registered with getModuleFactory.
+
+
+What Types of NgModules?
+Features Module – The feature modules are NgModules for the purpose of organizing an application code.
+Routing Module – The Routing is used to manage routes and also enables navigation from one view to another view as users perform application tasks.
+Service Module – The modules that only contain services and providers. It provides utility services such as data access and messaging. The root AppModule is the only module that should import service modules. The HttpClientModule is a good example of a service.
+Widget Module - The third party UI component libraries are widget modules.
+Shared Module – The shared module allows you to organize your application code. You can put your commonly used components, directives, and pipes into the one module and use whenever required to this module.
+
+Why you use BrowserModule, CommonModule, FormsModule, RouterModule, and HttpClientModule?
+
+BrowserModule – The browser module is imported from @angular/platform-browser and it is used when you want to run your application in a browser.
+
+CommonModule – The common module is imported from @angular/common and it is used when you want to use directives - NgIf, NgFor and so on.
+
+FormsModule – The forms module is imported from @angular/forms and it is used when you build template driven forms.
+
+RouterModule – The router module is imported from @angular/router and is used for routing RouterLink, forRoot, and forChild.
+
+HttpClientModule –The HttpClientModule is imported from @angular/common/http and it used to initiate HTTP request and responses in angular apps. The HttpClient is more modern and easy to use the alternative of HTTP.
+
+@NgModule({imports: [],declarations: [],})
+@Component({selector: 'selector'})
+
+
+@NgModule ({ 
+   imports:      [ BrowserModule ], 
+   declarations: [ AppComponent ], 
+   bootstrap:    [ AppComponent ] 
+}) 
+
+import => The import statement is used to import functionality from the existing modules. Thus, the first 3 statements are used to import the NgModule, BrowserModule and AppComponent modules into this module.
+NgModule => The NgModule decorator is used to later on define the imports, declarations, and bootstrapping options.
+NgModule => The BrowserModule is required by default for any web based angular application.
+bootstrap => The bootstrap option tells Angular which Component to bootstrap in the application
+
+Export array => This is used to export components, directives, and pipes which can then be used in other modules.
+Import array => Just like the export array, the import array can be used to import the functionality from other Angular JS modules.
+
+
+Components => Each application consists of Components. Each component is a logical boundary of functionality for the application.
+Components are a logical piece of code for Angular JS application. A Component consists of the following 
+
+Class => Class which consists of properties and methods.
+Metadata => This is used to decorate the class and extend the functionality of the class.
+Metadata => Metadata is used to decorate a class. so that it can configure the expected behavior of the class.
+
+Template => This is used to define the HTML view which is displayed in the application.
+
+Components are a logical piece of code for Angular JS application. A Component consists of the following 
+
+Template => This is used to render the view for the application. This contains the HTML that needs to be rendered in the application. This part also includes the binding and directives.
+
+Class => This is like a class defined in any language such as C. This contains properties and methods. This has the code which is used to support the view. It is defined in TypeScript.
+
+Metadata => This has the extra data defined for the Angular class. It is defined with a decorator
+
+directive => A directive is a custom HTML element that is used to extend the power of HTML. Angular 2 has the following directives that get called as part of the BrowserModule module.
+
+ngif
+ngFor
+ngIf => The ngif element is used to add elements to the HTML code if it evaluates to true, else it will not add the elements to the HTML code.
+*ngIf = 'expression'
+
+ngFor => The ngFor element is used to elements based on the condition of the For loop.
+*ngFor = 'let variable of variablelist'
+Metadata => Metadata is used to decorate a class so that it can configure the expected behavior of the class.Following are the different parts for metadata.
+
+Annotations => These are decorators at the class level. This is an array and an example having both the @Component and @Routes decorator.
+
+What Are decorators => The Decorators are functions that modify JavaScript classes and it also used for attaching metadata to classes.
+
+
+Modules − This is used to break up the application into logical pieces of code. Each piece of code or module is designed to perform a single task.
+Component − This can be used to bring the modules together.
+Templates − This is used to define the views of an Angular JS application.
+Metadata − This can be used to add more data to an Angular JS class.
+Service − This is used to create components which can be shared across the entire application.
+
+@Input decorator binds a property child component  to receive a value parent component. This is one way communication from parent to child. 
+A component can receive a value from another component using component property binding.
+
+
+@Output => @Output decorator binds a property of a component to send data from child component to parent component.
+This is one way communication from child to parent component. @Output binds a property of the type of angular EventEmitter class. This property name becomes custom event name for calling component.
+ @Output decorator can also alias the property name as @Output(alias) and now this alias name will be used in custom event binding in calling component
+
+@Output('addStudentEvent') addStdEvent = new EventEmitter(); 
+
+@ViewChild() => @ViewChild() decorator can be used to get the first element or the directive matching the selector from the view DOM. @ViewChild() provides the instance of another component or directive in a parent component and then parent component can access the methods and properties of that component or directive.
+@ViewChild() :- components can communicate with a component or directive.
+In a parent component we can use @ViewChild() for components, directives and template reference variable with ElementRef or TemplateRef. 
+
+
+@ContentChild => @ContentChild gives the first element or directive matching the selector from the content DOM.  If new child element replaces the old one matching the selector in content DOM, then property will also be updated.
+@ContentChild(BookDirective) book: BookDirective;  
+
+@ContentChildren => @ContentChildren is used to get QueryList of elements or directives from the content DOM. 
+When there is change in content DOM, data in QueryList will also change. If child elements are added, we will get those new elements in QueryList. If child elements are removed, then those elements will be removed from the QueryList. The metadata properties of @ContentChildren are as follows
+
+
+AngularJS lifecycle hook
+
+ngOnChanges => When the value of a data bound property changes, then this method is called.
+
+ngOnInit => This is called whenever the initialization of the directive/component after Angular first displays the data-bound properties happens.
+
+ngDoCheck => This is for the detection and to act on changes that Angular can't or won't detect on its own.
+
+ngAfterContentInit => This is called in response after Angular projects external content into the component's view.
+
+ngAfterContentChecked => This is called in response after Angular checks the content projected into the component.
+
+ngAfterViewInit => This is called in response after Angular initializes the component's views and child views.
+
+ngAfterViewChecked => This is called in response after Angular checks the component's views and child views.
+
+ngOnDestroy => This is the cleanup phase just before Angular destroys the directive/component.
+
+
+What’s New in Angular 4? AND what are the Improvements in Angular 4?
+ Angular 4 contains some additional Enhancement and Improvement. Consider the following enhancements.
+
+1.  Smaller & Faster Apps
+2.  View Engine Size Reduce
+3.  Animation Package
+4.  NgIf and ngFor Improvement
+5.  Template
+6.  NgIf with Else
+7.  Use of AS keyword
+8.  Pipes
+9.  HTTP Request Simplified
+10. Apps Testing Simplified
+11. Introduce Meta Tags
+
+What is Traceur Compiler?
+The “Traceur” is a JavaScript compiler. The Traceur compiler is very popular now days use to allow use to use the features from the future. This compiler is fully supported to ES5, ES6 and also to vNext. 
+
+
+Data binding => Data binding is the mechanism  that  synchronization of data between the model and view components.
+Data binding => Data binding is the mechanism used to ensure the linking between what a user see on the screen and the data value in our class.
+
+Attributes are defined by the HTML. Properties are defined by the DOM.
+Attributes: are used for initialization (the value of an attribute can’t be changed)
+Properties: are used for programmatically setting values.
+
+How many type of decorator in angularjs.
+	1. Class Decorators =>  The class decorator tell Angular that a particular class is a component or module.
+		e.g. @Component and @NgModule
+	2. Property Decorators =>They allow us to decorate specific properties within our classes - an extremely powerful mechanism.
+		e.g. @input and output
+		
+	3. Method Decorators e.g. @HostListener
+	4. Parameter decorators for parameters inside class constructors: e.g. @Inject
+
+Components => The component is a directive with their own templates and it is responsible for how a component should be processed, instantiated and used at run-time.
+Structural Directives => The structural directive is a directive and it is responsible for change the DOM layout by adding, removing, and manipulating elements.
+The most of the common built-in structural directives are NgIf, NgFor, and NgSwitch.
+Attribute Directives => The Attribute directive is a directive and it is responsible for change the behavior of a specified element or component.
+
+What are the differences between @Component and @Directive?
+The components are used, when you want to create new elements in the DOM with their own HTML template.
+The attribute directives are used, when you want to change or update the existing elements in the DOM.
+
+of => Emit variable amount of values in a sequence.
+const source = of(1, 2, 3, 4, 5); ////output: 1,2,3,4,5
+range= >Emit numbers in provided range in sequence.
+
+stream => A stream is a sequence of events over time (eg. a stream of click events). 
+tap => The tap operator doesn’t change the observable data.it just passes it the next operator or the  method subscribe().
+
+from()=> the operator from() returns a synchronous observable, but if you want an asynchronous one, use a second argument.
+Rx.Observable.from(beers, Rx.Scheduler.async)
+Observable using the Observable.from() function. Then it applies the filter() operator to pass only the beers that cost less than eight dollars, and the chained map() 
+operator converts the beer object into a string.
+
+let beers = [
+    {name: "Stella", country: "Belgium", price: 9.50},
+    {name: "Sam Adams", country: "USA", price: 8.50},
+    {name: "Bud Light", country: "USA", price: 6.50},
+    {name: "Brooklyn Lager", country: "USA", price: 8.00},
+    {name: "Sapporo", country: "Japan", price: 7.50}
+];
+ 
+Rx.Observable.from(beers)   // <1>
+  .filter(beer => beer.price < 8)   // <2>
+  .map(beer => beer.name + ": $" + beer.price) // <3>
+  .subscribe(    // <4>
+      beer => console.log(beer),
+      err => console.error(err),
+      () => console.log("Streaming is over")
+);
+ 
+console.log("This is the last line of the script");
+
+
+Concat=> Subscribe to Observables in order but only when the previous completes, let me know, then move to the next one.Use this operator when you need to run the Observables in parallel.
+const getPostOne$ = Rx.Observable.timer(3000).mapTo({id: 1});
+const getPostTwo$ = Rx.Observable.timer(1000).mapTo({id: 2});
+Rx.Observable.concat(getPostOne$, getPostTwo$).subscribe(res => console.log(res));
+
+forkJoin =>Don’t let me know until all the Observables are complete, then give me all the values at once. ( Array )
+	const getPostOne$ = Rx.Observable.timer(1000).mapTo({id: 1});
+	const getPostTwo$ = Rx.Observable.timer(2000).mapTo({id: 2});
+Rx.Observable.forkJoin(getPostOne$, getPostTwo$).subscribe(res => console.log(res)) 
+
+mergeMap => Only when the inner Observable emits, let me know by merging the value to the outer Observable.
+
+const post$ = Rx.Observable.of({id: 1});
+const getPostInfo$ = Rx.Observable.timer(3000).mapTo({title: "Post title"});
+
+const posts$ = post$.mergeMap(post => getPostInfo$).subscribe(res => console.log(res));
+
+pairwise =>Let me know when the Observable emits, but also give me the previous value. ( Array )
+Rx.Observable.fromEvent(document, 'scroll')
+  .map(e => window.pageYOffset)
+  .pairwise().subscribe(pair => console.log(pair)); // pair[1] - pair[0]
+  
+  
+  switchMap =>Like mergeMap but when the source Observable emits cancel any previous subscriptions of the inner Observable.
+	const clicks$ = Rx.Observable.fromEvent(document, 'click');
+	const innerObservable$ = Rx.Observable.interval(1000);
+	clicks$.switchMap(event => innerObservable$)subscribe(val => console.log(val));
+combineLatest => Let me know when any Observable emits but also give me the latest value from the others. ( Array )This operator is very useful when you need for example to deal with filters in your app.
+
+
+
+
+
+==================================================
+
+
+
+
+
+What is Angular Router?
+An Angular Router is a tool, library that configures navigations between states and views within your Angular app.
+
+
+
+
+
+
+
+
+
+
+
+

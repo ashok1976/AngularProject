@@ -1,0 +1,50 @@
+﻿What will be the output of the above line of code?
+"1"+2+3 = ? And 1+2+"3" = ? OutPut Will Be?
+Answers:-
+As you know in JavaScript, when the “first character” is a “string” the remaining characters will be converted into a “single string” that means the output of “1”+2+3 will be 123.
+If the “string” is at the end the initial characters will perform normal mathematical functions before converting into a “string”, that means the output of 1+2+“3” will be 33.
+ 
+What is function overloading in JavaScript?
+
+There is no real function overloading in JavaScript and it allows to pass any number of parameters of any type.
+ function sum(a, b) {
+    alert(a + b);
+}
+
+function sum(c) {
+    alert(c);
+}
+ 
+sum(3);//The output is 3.
+sum(2, 4);//The output is 2.
+ 
+ Mutable object - The object is subject to be changed/altered.
+ 
+Immutable object - The object cannot be changed once created.
+ 
+ 
+ function mutation(originalArray) {
+    // directly mutating/modifying the original array
+    originalArray[0] = "new value";
+    return originalArray;
+  }
+
+  var array = ["some value", "another value"];
+  alert("Return from mutation " + mutation(array));
+  alert("Array: " + array + " (original array has been altered).");
+  
+  
+  
+
+function immutable(originalArray) {
+    // Instead of mutating/modifying the original array,
+    // we first make a copy of the original array
+    // In this way, the original array stay unchanged.
+    var newArray = [...originalArray];
+    newArray[0] = "new value";
+    return newArray;
+  }
+
+  var array = ["some value", "another value"];
+  alert("Return from immutable " + immutable(array));
+  alert("Array: " + array + " (original array stay unchanged).");

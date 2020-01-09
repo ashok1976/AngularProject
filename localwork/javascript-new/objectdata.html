@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Promise </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+*{ margin:0; padding:0; list-style:none}
+li{ margin-bottom:10px;  padding:0 10px}
+</style>
+</head>
+<body>
+
+
+
+<ul id="myData">
+
+</ul>
+
+
+<script>
+var employee = [
+			{id:1,firstName:'Ashok',lastName:'kumar',graduate:'HNB Garhwal University',years:1999},
+			{id:2,firstName:'Roshan',lastName:'kumar',graduate:'HNB Garhwal University',years:1992},
+			{id:3,firstName:'Sanjay',lastName:'kumar',graduate:'HNB Garhwal University',years:1994},
+			{id:4,firstName:'Jitendra',lastName:'Yadev',graduate:'145 HNB Garhwal University',years:2008},
+			{id:3,firstName:'Sanjay',lastName:'kumar',graduate:'HNB Garhwal University',years:1994},
+			{id:2,firstName:'Roshan',lastName:'kumar',graduate:'HNB Garhwal University',years:1992}
+	];
+function employData(id,firstname,lastname,graduate,year){
+		this.id= id;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.graduate = graduate;
+		this.year = year
+}
+
+employData.prototype.Details = function(){
+	return alert( this.firstname);
+}
+
+data = {};
+uniqueData = [];filterData = [];
+var html = '';
+for(k in employee){
+
+	data[k] = new employData(employee[k].id, employee[k].firstName, employee[k].lastName,employee[k].graduate,employee[k].years);
+	
+	data = data[k];
+	var marvelHeroes =  data.filter(function(hero) {
+	return hero.id == 1;
+	});
+	
+	console.log(data)	
+	/*
+	
+	for(i=0; i<k.length; i++){
+			if(uniqueData.indexOf(data[k].id) == -1){
+				uniqueData.push(data[k].id);
+					html +='<li onCLick="data['+k+']'+'.Details()">'+data[k].id+'</li>';
+				}
+				
+			}*/
+			
+	}
+document.getElementById('myData').innerHTML = html;	
+
+/*
+const user = {id: 229,name: 'John',email:'john@awesome.com'};
+
+function replace(key,value){
+	if(key === 'email'){
+		return 'ashokkumar@gmail.com'
+	}else{
+	return value
+	}
+}
+newUser = JSON.stringify(user,replace);
+console.log(newUser)
+
+
+console.log()*/
+
+</script>
+
+
+
+
+
+</body>
+</html>

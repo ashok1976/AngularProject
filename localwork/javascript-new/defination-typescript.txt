@@ -1,0 +1,47 @@
+Function => Functions are the build blocks of readable, maintainable, and reusable code. A function is a set of statements to perform a specific task. 
+Functions organize the program into logical blocks of code. A function declaration tells the compiler about a function's name, return type, and parameters.
+
+
+Optional Parameters => Optional parameters can be used when arguments need not be compulsorily passed for a function’s execution.A parameter can be marked optional by appending a question mark to its name. 
+
+
+Rest Parameters => Rest parameters are similar to variable arguments. Rest parameters don’t restrict the number of values that you can pass to a function. However, the values passed must all be of the same type.
+In other words, rest parameters act as placeholders for multiple arguments of the same type.To declare a rest parameter, the parameter name is prefixed with three periods.
+
+
+
+rest parameters => Rest parameters collect all the remaining elements into an array. 
+Note: Rest parameters have to be at the last argument. This is because it collects all remaining arguments into an array. 
+
+function add(...args) {
+  let result = 0;
+  for (let arg of args) result += arg;
+  return result
+}
+
+add(1) // returns 1
+add(1,2) // returns 3
+add(1, 2, 3, 4, 5) // returns 15
+
+
+Type Annotation => Type Annotations means defining the type of a variable explicitly.
+let num: number = 2; 
+
+Type Inference => Type inference is a mechanism to determine the type of data at compile time in the absence of explicit type annotations. 
+let myBool = true; // boolean
+let myNumber = 1.23; // number
+
+
+Type Assertion => A type assertion is just like a type casting, but it doesn’t perform special type checking or restructuring of data.
+let anyValue: any = "Welcome to www.gurukulsight.com!";
+
+
+
+    font-size: 14px;    
+
+<div style="display:block;font:14px Arial;color:#000;width:100%;clear:both; ">
+
+
+
+
+</div>

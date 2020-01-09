@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Recursion</title>
+</head>
+
+<body>
+<!--<div class="wrap">
+  <div class="box">
+    <h2>Wes Bos</h2>
+    <p class="social">@wesbos</p>
+  </div>
+</div>
+<div class="wrap">
+  <div class="box opening">
+    <h2>Wes Bos</h2>
+    <p class="social">@wesbos</p>
+  </div>
+</div>-->
+
+<div id="table"></div>
+<script>
+ var myBooks = [
+				{"ID": "1","Book Name": "Computer Architecture","Category": "Computers","Price": 125.60},
+				{"ID": "2","Book Name": "Asp.Net 4 Blue Book","Category": "Programming","Price": 56.00},
+				{"ID": "3","Book Name": "Popular Science","Category": "Science","Price": 210.40}
+     ]
+
+	 
+for(i=0; i < myBooks.length; i++){
+	obj = new Array(myBooks[i]);
+	for(key in obj){
+		console.log( obj[key].ID);
+	}
+	
+}	 
+
+let products = [
+  { name:'Running shoes', price: 75, brand:[{'company':'nokia', 'location':'delhi'}] },
+  { name:'Golf shoes', price: 85, brand:[{'company':'nokia', 'location':'delhi'}] },
+  { name:'Dress shoes', price: 95, brand:[{'company':'nokia', 'location':'delhi'}] },
+  { name:'Walking shoes', price: 65, brand:[{'company':'nokia', 'location':'delhi'}] },
+  { name:'Sandals', price: 55, brand:[{'company':'nokia', 'location':'delhi'}] }
+];
+
+
+html = '';
+html += '<table width="500" style="border-collapse:collapse" border="1">';
+html += '<tr>';
+html += '<th width="25%"> Name </th>';
+html += '<th  width="25%"> price </th>';
+html += '<th  width="25%"> company </th>';
+html += '<th  width="25%"> location </th>';
+html += '</tr>';
+
+for(key in  products){
+html += '<tr>';
+html += '<td>'+	products[key].name+'</td>';
+html += '<td>'+	products[key].price+'</td>';
+var	brand = products[key].brand;
+for(key in  brand){
+	html += '<td>'+	brand[key].company+'</td>';
+	html += '<td>'+	brand[key].location+'</td>';
+
+		}
+html += '<tr>';	
+}
+
+
+html += '</table>';
+document.getElementById('table').innerHTML =html
+</script>
+</body>
+</html>

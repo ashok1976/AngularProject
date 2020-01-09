@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Promise </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{ margin:0; padding:0; list-style:none}
+li{ margin-bottom:10px;  padding:0 10px}.
+.checkbox{ padding:10px;}
+.checkbox input{ }
+</style>
+</head>
+<body>
+
+ <div class="container">
+ <div class="row">
+ <div class="col">.COL 1</div>
+ <div class="col">.COL 2</div>
+ <div class="col">.COL 3</div>
+ <div class="col">.COL 4</div>
+ <div class="col">.COL 5</div>
+ </div>
+ <div class="row">
+ <div id="exampleDiv">Example DIV</div>
+ </div>
+ </div>
+
+
+<ul   id="data">Click Here</ul>
+
+
+<br>
+<br>
+<br>
+
+<ul id="list">
+
+</ul>
+
+<div id="scroll"> </div>
+
+<div onClick="">Button</div>
+
+
+<div id="checked" class="checkbox">
+<br><br><input id="all" type="checkbox" onclick="allCheck();"  value="Check All">Check All 
+ <input type="checkbox" onclick="unCheckAll();" >Uncheck All <br>
+<input class="myAtt" type="checkbox" name="chek[]"  value="A">Checkbox A <br>
+<input class="myAtt" type="checkbox" name="chek[]"  value="B">Checkbox B <br>
+<input class="myAtt" type="checkbox" name="chek[]"  value="C">Checkbox C<br>
+<input class="myAtt" type="checkbox" name="chek[]"  value="D">Checkbox D<br>
+</div>
+
+<script>
+var col = document.querySelectorAll('.col');
+	col.forEach((val,index)=> 
+	console.log(`${val.innerHTML} :: ${index}`)
+	)
+
+
+
+
+console.log(exampleDiv)
+
+
+
+
+function allCheck(){
+ var inputs = document.querySelectorAll('.myAtt');
+  len= inputs.length;
+	for(i=0;i<len;i++){  
+	inputs[i].checked = true
+	}
+
+}
+
+function unCheckAll(){
+	inputs = document.getElementsByName('.myAtt');
+	len = inputs.length;
+	for(i=0; i<=len; i++){
+		inputs[i].checked = false;
+		}
+}
+
+var overall = document.querySelectorAll('.myAtt');
+for(i=0; i< overall.length; i++){
+	overall[i].addEventListener("click", allbox);
+
+}
+function allbox(){
+	var counter = 1; 
+	var inputs = document.querySelectorAll('.myAtt');
+	len = inputs.length;
+		for(i=0; i<inputs.length; i++){
+		if(inputs[i].checked){
+			counter++	
+		}
+	}
+	if(counter === len +1){
+		document.getElementById('all').checked = true
+	}else if(counter < len +1  && counter > 1){
+		document.getElementById('all').checked = false
+	}else{
+		document.getElementById('all').checked = false
+	}
+}
+
+
+
+/*
+
+
+
+
+var employee = [
+
+	{id:1,firstName:'Ashok',lastName:'kumar',graduate:'HNB Garhwal University',years:1999},
+	{id:2,firstName:'Roshan',lastName:'kumar',graduate:'HNB Garhwal University',years:1992},
+	{id:3,firstName:'Sanjay',lastName:'kumar',graduate:'HNB Garhwal University',years:1994},
+	{id:4,firstName:'Jitendra',lastName:'Yadev',graduate:'145 HNB Garhwal University',years:2008},
+	{id:3,firstName:'Sanjay',lastName:'kumar',graduate:'HNB Garhwal University',years:1994},
+	{id:1,firstName:'Ashok',lastName:'kumar',graduate:'HNB Garhwal University',years:1999}
+	
+	
+];
+
+
+function Human(id,firstname,lastname,graduate,year){
+		this.id = id;
+		this.firstname = firstname;
+		
+		
+}
+Human.prototype.Details = function(){
+	return alert( this.id +" ::=>  My name is " + this.firstName ;
+}
+
+myInstance = new Human(1,'Ashok','kumar','HNB',1999);
+
+data={};
+unique_array=[];
+html = ""
+for(key in employee){
+	data[key] = new Human(this.id +" ::=>  My name is " + this.firstName);
+	for(i=0; i<key.length; i++){
+		if(unique_array.indexOf(data[x].id) == -1){
+           unique_array.push(data[x].id)
+			html +='<li onCLick="data['+x+']'+'.Details()">'+data[x].firstName+'</li>';
+        }
+	}
+}
+document.getElementById('data').innerHTML = html
+
+
+
+
+function abc(name){
+	if(!this.target){
+		alert(this.name=name)
+	}
+	this.name ="Ashok"
+}
+
+function returnObj(name,age){
+	this.name = name
+	this.age = age
+	return {name:'Ashok'}
+	}
+var ab = new returnObj('ashok kumar',25)
+
+
+companies = [
+			{company:'Bhaskar Power', catagory:'Media', startDate:1980, endDate:2019},
+			{company:'3M India Ltd', catagory:'Trading', startDate:19750, endDate:2019},
+			{company:'Aarti Industries Ltd', catagory:'Chemicals', startDate:19750, endDate:2019},
+			{company:'ABB Ltd', catagory:'Engineering', startDate:1978, endDate:2019},
+			{company:'Abbott India Ltd', catagory:'Switching Equipment', startDate:1980, endDate:2019},
+			{company:'Adani Power Ltd', catagory:'Engineering', startDate:1990, endDate:2019},
+			{company:'Adani Transmission Ltd.', catagory:'Power Projects', startDate:1990, endDate:2019},
+			{company:'Housing Development Finance Corporation Ltd.', catagory:'Finance', startDate:1980, endDate:2019},
+			{company:'State Bank Of India', catagory:'Banking', startDate:1980, endDate:2019},
+			{company:'HDFC Bank Ltd. Bank', catagory:'Banking', startDate:1980, endDate:2019},
+			{company:'Kotak Mahindra Bank Ltd', catagory:'Banking', startDate:1980, endDate:2019},
+			{company:'Bhaskar', catagory:'Media', startDate:1980, endDate:2019}
+]
+
+ages = [22,25,45,1,51,55,14,15,15,12,52,21,23,23,45,25,34,36,12,54,52,25,36]
+	
+
+	for(i=0; i<companies.length; i++){
+		console.log(companies[i].company)
+	}
+	companies.forEach( val => console.log(val.company))
+	companies.filter((val)=>{
+		if(val.catagory === 'Banking'){
+		console.log(val.company)
+		
+		}
+	})
+	
+
+function myDetail(method,age,empID){
+	this.name = method;
+}
+var getDetail = function(id){
+	return `I am calling ${this.name} method and my employ id : ${id}.`
+}
+//call Method: The call() method takes arguments separately. The call() method allows you to pass in arguments one by one.
+var v = new myDetail('call');
+console.log(getDetail.call(v, 24324))
+//Apply Method: The apply() method takes arguments as an array.
+var v = new myDetail('apply');
+getDetail.apply(v,[24324])
+console.log(getDetail.apply(v,[24324]));
+
+//bind Method:  The bind() method returns a new function, allowing you to pass in a this array and any number of arguments.
+var v = new myDetail('bind');
+var ds = getDetail.bind(v,24334)(); //()sign self invoking anonymous functions  
+var ds1 = getDetail.bind(v,24334);
+console.log(ds);
+console.log(ds1());
+
+var person = {firstName: 'Ashok', lastName: 'kumar'};
+function say() {
+    console.log('Hello ' + this.firstName + ' ' + this.lastName);
+}
+var myDetail = say.bind(person)
+
+
+
+let b=1;
+function a(){
+	var b = 0
+	var b = 3
+return b
+}
+
+console.log(a())// 2
+console.log(b)//1
+
+
+
+
+
+myPerson = {
+	firstname :'Ashok',
+	lastname: 24,
+fullname: function(){
+	console.log(this); 
+//{firstname: "Ashok", lastname: 24, fullname:ƒ}
+//As you’ll see, the console returns the myPerson object
+}
+}
+myPerson.fullname() 
+
+
+var person = {
+  first: 'John',
+  last: 'Smith',
+  full: function() {
+    console.log(this.first + ' ' + this.last);
+  },
+  personTwo: {
+    first: 'Allison',
+    last: 'Jones',
+    full: function() {
+      console.log(this.first + ' ' + this.last);
+    }
+  }
+};
+
+console.log(person.full()+"===")
+console.log(person.personTwo.full())
+
+
+
+
+
+car = {
+	registrationNumber : '2693',
+	brand : 'Bajaj',
+	displayDetails: function(){
+		console.log(this.registrationNumber + " : "+ this.brand)
+	}
+}
+
+var myCarDetails =  car.displayDetails.bind(car);
+myCarDetails();
+
+myBind = {
+	registrationNumber: "GA12345",
+    brand: "Toyota",
+	myDisplay : function(ownerName){
+		return ownerName
+	}
+}
+var myCar = myBind.myDisplay.bind(myBind, "Vivian"); 
+myCar()
+
+youCar = {
+	registrationNumber : '269---3',
+	brand : 'Bajaj',
+
+}
+function myFunction(ownerName){
+	console.log(ownerName +" ::  "+this.registrationNumber + " :: "+ this.brand)
+}
+var myArray = ['Ashok','kumar']
+var s = myFunction.bind(youCar)
+myFunction.apply(youCar, myArray)
+
+o = {name: 'Ashok'}
+function showProfileMessage(message){
+	console.log(message +"::"+ this.name)
+}
+
+showProfileMessage.call(o, 'welcome' )
+
+
+
+function mulFuction(a){
+	return function(b){
+		return function(c){
+			return a+b+c
+		}
+	}
+}
+console.log(mulFuction(2)(3)(15))
+
+var arrayList = [1 , 2, 3];
+
+function greet(param){
+	if( typeof param ==='object'){
+		console.log('My Array list')
+	}else{
+	alert('My function');
+	}
+
+}
+
+greet(arrayList);
+const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
+
+function removeDuplicate(arr){
+	var unique =[];
+	for(i=0; i<arr.length; i++){
+		if(unique.indexOf(arr[i])== -1){
+		unique.push(arr[i])
+		}
+	}
+	return unique
+	
+
+}
+console.log(removeDuplicate(names))
+jobs = [1,2,2,2]
+var jobsUnique = jobs.filter(function(item, index){
+	
+	if(jobs.indexOf(item) >= index){
+		console.log(index+"====");
+		return jobs
+	}
+});
+console.log(jobsUnique+"=====");
+
+
+function alagrma(n1,n2){
+	n1 = n1.split("").sort().join('');
+	n2 = n2.split("").sort().join('');
+	if(n1 != n2){
+		return false
+	}
+if(n1 == n2){
+	return true
+	}else{
+	return false
+	}
+
+}
+
+alert(alagrma("abcd","dcba"))
+
+
+
+var people = {
+		name :"Ashok",
+		lastname : "kumar",
+		fullName : function(){
+			return `my name is ${this.name} ${this.lastname}`
+		}
+		
+}
+console.log(people.fullName())
+var json = ["apple","orange","banana","strawberry","11","12","13","14"];
+
+var myslice =json.slice(0,4);
+var remainSlice = json.slice(4,json.length);
+var children = remainSlice.concat(myslice);
+
+
+console.log(children)
+
+
+
+
+
+for(i=myslice.length-1; i>=0; i--){
+	console.log(myslice[i])
+}
+
+
+
+for(i=json.length-1; i>=0; i--){
+	console.log(json[i])
+}
+
+data = JSON.parse(json)
+console.log(data)
+
+var start=0;
+var end=20;
+var index=0;
+var promise = new Promise((resolve, reject) =>{
+	var http = new XMLHttpRequest();
+	var url ="https://jsonplaceholder.typicode.com/posts";
+	http.open("get",url);
+	http.onload = function(){
+	if(http.status = 200){
+		 resolve( http.response)
+	}else{
+		console.log(Errors(reject(http.statusText)))//reject(http.statusText); // status is not 200 OK, so reject
+		}
+}
+	http.send()
+})
+var html ="";
+
+promise.then((data)=>{
+	mydata = JSON.parse(data);
+	sliceData = mydata.slice(start,end);
+	
+	sliceData.forEach((val,key)=>{
+		html +='<li>'
+		html +='<h4>'+val.id+"::"+val.title+'</h4>'
+		html +='<p>'+val.body+'</p>'
+		html +='</li>'
+	
+	})
+	document.getElementById('list').innerHTML = html
+	
+},error => {
+    console.log("Promise rejected.");
+    console.log(error.message);
+})
+function loadData(){
+start += 20;
+end += 10;
+var newData= mydata.slice(start,end);
+	newData.forEach((val,key)=>{
+		html +='<li>'
+		html +='<h4>'+val.id+"::"+val.title+'</h4>'
+		html +='<p>'+val.body+'</p>'
+		html +='</li>'
+	})
+	document.getElementById('list').innerHTML = html
+	//index++
+
+}
+console.log(promise)
+
+  var elmnt = document.getElementById("scroll");
+  var y = elmnt.scrollTop;
+  
+
+  
+  window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > y || document.documentElement.scrollTop > y) {
+    loadData()
+  } 
+}
+window.onscroll = function() {console.log(scrollFunction())};
+  
+
+var abc = ()=> alert('test')
+  */
+</script>
+
+
+
+
+
+</body>
+</html>

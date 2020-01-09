@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Promise </title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+</head>
+<body>
+
+<span onClick="loadData()" id="btn">Button</span>
+
+<div id="result">
+
+</div>
+<script>
+var reversr = [1,2,3,4,5,6,7,8,9]
+function backTofront(str){
+	myArray = [];
+	myArray1 = [];
+	for(i=str.length; i>=1; i--){
+		myArray.push(i);
+	}
+	return console.log(myArray);
+}
+backTofront(reversr)
+
+function backToback(str){
+	temp = [];
+	len = str.length;
+	for(i = len; i !=0; i--){
+		temp.push(i)
+	}
+	return console.log(temp);
+}
+backToback(reversr);
+
+var myArray = [1,2,3,4,1,5,2,4,3]
+obj ={}
+for (let key of myArray){
+	obj[key] = false
+}
+b = Object.keys(obj) 
+console.log(b)
+
+
+var getData='';
+var start=0;var end=10;total=0 
+function load(){
+	var url = "https://jsonplaceholder.typicode.com/posts";
+	var http = new XMLHttpRequest();
+	http.onreadystatechange = function(){
+		var html ='';
+		if(this.readyState == 4 && this.status == 200){
+		 getData = 	JSON.parse(http.responseText);
+		 var data = JSON.parse(http.responseText).slice(start,end);
+			total = data.length;
+				data.forEach(function(val){
+					html +='<h2><h2>'+val.id+'</h2>'+val.title+'</h2><p>'+val.body+'</p>'
+				})
+			document.getElementById('result').innerHTML = html;
+		}
+	}
+	http.open("get",url,true);
+	http.send()
+}
+load();
+count=0
+function loadData(){
+	html ="";
+	start += 10 ;
+	end += 10;
+	var newData = getData.slice(start,end);
+		newData.forEach(function(val){
+			html +='<h2>'+val.id+'</h2><h2>'+val.title+'</h2><p>'+val.body+'</p>';
+			total++
+		})
+		if(total == getData.length){
+			document.getElementById('btn').style.display="none"
+				
+	}
+	document.getElementById('result').innerHTML +=html
+}
+
+function getStudent(){
+return new Promise(function(resole,reject){
+		setTimeout(function(){
+			resole()
+		},1000)
+	})
+}
+getStudent().then(success,failure);
+function success (){
+	console.log('Succes')
+}
+function failure(){
+	console.log('reject')
+}
+console.log(getStudent())
+
+
+</script>
+</body>
+</html>

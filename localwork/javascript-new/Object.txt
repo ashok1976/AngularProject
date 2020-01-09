@@ -1,0 +1,541 @@
+overriding and overloading in javascript
+JavaScript supports overriding not overloading, meaning, that if you define two functions with the same name, the last one defined will override the previously defined version and every time a call will be made to the function, the last defined one will get executed
+Initialization => Variable Initialization in Javascript. ... Initialization is the means of assigning an initial value to a variable.
+
+prototype => All JavaScript objects inherit properties and methods from a prototype.
+Prototypes => When a function is created in JavaScript, JavaScript engine adds a prototype property to the function.
+This prototype property is an object has a constructor property by default.We can access the function’s prototype property using the syntax 
+functionName.prototype.
+
+
+prototype, which is itself an object, inherits from its parent’s prototype, which inherits from its parent’s prototype.This is often referred to as the prototype chain. which is always at the end of the prototype chainwhich is always at the end of the prototype chain
+i.e., at the top of the prototypal inheritance tree), contains methods like toString(), hasProperty(), isPrototypeOf(), and so on.
+
+
+What is local scope => A variable that you declare within a function called local scope. Variable can be accessed within a function, but outside of function you can't.
+What is global scope => If you declare variables outside of the function, Those variables scopes globally.
+Auto global scope => When you declare variables at the time if you are not specify var keyword automatically variable can consider global scope.
+
+You should access variable within function as well as outside of the function.
+
+delete => JavaScript delete operator deletes object property or remove specific element in array. 
+If delete is not allow (you can't delete if element not exist, array element undefined etc..) then return false otherwise return true.
+
+var add = "63 street Ct.";
+delete address;             // Returns false, Using var keyword you can't delete
+add = "63 street Ct.";
+delete add;                 // Returns true, explicit declare you can delete
+
+
+
+JSON.parse to convert JSON back into an object.
+
+JSON.parse() takes a JSON string and transforms it into a JavaScript object. JSON.parse() can take an second argument for a reviver function that can transform the object values before they are returned.
+const user = {  name: 'John',  email: 'john@awesome.com',  plan: 'Pro'};
+const userStr = JSON.stringify(user);
+JSON.parse(userStr, (key, value) => {
+  if (typeof value === 'string') {
+    return value.toUpperCase();
+  }
+  return value;
+});
+
+JSON.stringify to convert objects into JSON.
+JSON.stringify() takes a JavaScript object and transforms it into a JSON string.JSON.stringify() can take two additional arguments, the first one being a replacer function and the second a String or Number value to use as a space in the returned string.
+const user = {id: 229,name: 'John',email:'john@awesome.com'};
+function replaces(key,value){
+	if(key == 'email'){
+		return 'ashok.its1@gmail.com';
+	}else{
+	return value;
+	}
+}
+newUser = JSON.stringify(user,replaces);
+console.log(newUser) //{"id":229,"name":"John","email":"ashok.its1@gmail.com"}
+
+=====================================================================88888888888888888888888888888==============================================================
+Pure functions => Pure functions always returns the same result if the same arguments are passed in. It does not depend on any state, or data, change during a program's execution. It must only depend on its input arguments .
+
+Impure functions => Any function that changes the internal state of one of its arguments or the value of some external variable is an impure function. They may have any side effects like network or database calls and it may modify the arguments which are passed to them.
+
+anagram => Anagrams are words or phrases that contain the same number of characters. 
+logic => 
+If both the strings are of different lengths then they can not be permutations of each other. return false;
+Sort both the strings.
+Compare both the sorted strings.
+
+function isAnagram (str1, str2) {
+    if (str1.length !== str2.length) {
+        return false;
+    }
+    var sortStr1 = str1.split('').sort().join('');
+    var sortStr2 = str2.split('').sort().join('');
+    return (sortStr1 === sortStr2);
+}
+
+console.log(isAnagram('dog','god')); // true
+console.log(isAnagram('foo','bar')); // false
+console.log(isAnagram('foo','fooo')); // false
+
+
+Logic :
+If both the strings are of different lengths then they can not be permutations of each other. Hence, return false.
+Create character count for string 1.
+Compare the character count for string 1 with string 2
+
+
+Reverse the provided string.
+You may need to turn the string into an array before you can reverse it.
+
+function reverseString(str) {
+    return str;
+}
+reverseString("hello");
+
+
+
+
+what is diffirence between Constructor Vs. ngOnInit .
+
+Angular 2 Constructors:-
+The constructor is a default method runs when component is being constructed.
+The constructor is a typescript feature and it is used only for a class instantiations and nothing to do with Angular 2.
+The constructor called first time before the ngOnInit().
+
+
+Angular 2 ngOnInit:-
+The ngOnInit event is an Angular 2 life-cycle event method that is called after the first ngOnChanges and the ngOnInit method is use to parameters defined with @Input otherwise the constructor is OK.
+The ngOnInit is called after the constructor and ngOnInit is called after the first ngOnChanges.
+The ngOnChanges is called when an input or output binding value changes.
+
+
+
+
+
+
+
+
+
+What are TypeScript Types?
+The Type represents the different types of values which are using in the programming languages and it checks the validity of the supplied values before they are manipulated by your programs.
+
+Number: the “number” is a primitive number type in TypeScript. There is no different type for float or double in TypeScript.
+Boolean: The “boolean” type represents true or false condition.
+String: The “string” represents sequence of characters similar to C#.
+Null: The “null” is a special type which assigns null value to a variable.
+Undefined: The “undefined” is also a special type and can be assigned to any variable.
+Any : this data type is the super type of all types in TypeScript. It is also known as dynamic type and using “any” type is equivalent to opting out of type checking for a variable.
+
+what is Named Function.
+The named function is very similar to the JavaScript function and only one difference - we must declare the type on the passed parameters.
+Example – JavaScript
+function addTwoNumer(num1, num2) { // javascript name function
+    return num1 + num2;
+}
+Example – TypeScript
+function addTwoNumer(num1: number, num2: number): number{
+    return num1 + num2;
+}
+
+What Is Angular Service?
+Services are commonly used for storing data and making HTTP calls.
+
+The main idea behind a service is to provide an easy way to share the data between the components and with the help of dependency injection (DI) you can control how the service instances are shared.
+Services use to fetch the data from the RESTful API.
+
+
+What Is Angular Singleton Service?
+In Angular, two ways to make a singleton service.
+	Include the service in the AppModule
+	Declare that the service should be provided in the application root.
+
+The preferred way to create a singleton service - Form beginning to Angular 6 is –
+import { Injectable } from '@angular/core';
+
+@Injectable({providedIn: 'root',})
+export class CustomerService {}
+
+
+Another way to create a singleton service - Include service in the AppModule
+
+import { Injectable } from '@angular/core';
+@Injectable()
+export class CustomersService {
+	constructor() { }
+}
+
+
+
+What is AOT compilation? Why Use in Angular 2?
+
+AOT compilation stands for “Ahead of Time compilation” and it are used to compiles the angular components and templates to native JavaScript and HTML during the build time instead of run-time.
+The compiled HTML and JavaScript are deployed to the web server so that the compilation and render time can be saved by the browser. It is the big advantage to improve the performance of applications.
+
+Advantages of AOT -
+Faster download: - The Angular 2 app is already compiled so it is faster.
+Faster Rendering: - If the app is not AOT compiled and the compilation process happens in the browser once the application is fully loaded. This has a wait time for all necessary components to be downloaded and then the time taken by the compiler to compile the app. With AOT compilation, this is optimized.
+Lesser Http Requests: - It is supporting to the lazy loading. Actually, lazy loading is great concepts for sending HTTP request to the server. It is minimise the multiple requests for each associated html and css, there is a separate request goes to the server.
+Detect error at build time: - In Angular 2, the compilation happens beforehand and most of the errors can be detected at the compile time and this process providing us a better application’s stability.
+
+Disadvantages of AOT -
+AOT only works only with HTML and CSS and not for other file types. If required other file types that time we will need to follow the previous build step.
+We need to maintain AOT version of bootstrap file.
+We need to clean-up step before compiling.
+
+
+What Are The New Features Of Angular 2? Why You Used Angular 2?
+Component Based- It is entirely component based. It is not used to scope and controllers and Angular 2 are fully replaced by components and directives.
+Directives- The directive can be declared as @Directive annotation.
+A component is a directive with a template and the @Component decorator is actually a @Directive decorator extended with template oriented features.
+Dependency Injection- Dependency Injection is a powerful pattern for managing code dependencies. There are more opportunities for component and object based to improve the dependency injection.
+Use of TypeScript- Type represents the different types of values which are using in the programming languages and it checks the validity of the supplied values before they are manipulated by your programs.
+Generics- TypeScript has generics which can be used in the front-end development.
+Lambdas and Arrow functions – In the TypeScript, lambdas/ arrow functions are available. The arrow function is additional feature in typescript and it is also known as a lambda function.
+Forms and Validations- Angular 2 forms and validations are an important aspect of front-end development.
+
+Why You Used Angular 2?
+1.     It is entirely component based.
+2.     Better change detection
+3.     Angular2 has better performance.
+4.     Angular2 has more powerful template system.
+5.     Angular2 provide simpler APIs, lazy loading and easier to application debugging.
+6.     Angular2 much more testable
+7.     Angular2 provides to nested level components.
+8.     Ahead of Time compilation (AOT) improves rendering speed
+9.     Angular2 execute run more than two programs at the same time.
+10.  Angular1 is controllers and $scope based but Angular2 is component based.
+11.  The Angular2 structural directives syntax is changed like ng-repeat is replaced with *ngFor etc.
+12.  In Angular2, local variables are defined using prefix (#) hash. You can see the below *ngFor loop Example.
+13.  TypeScript can be used for developing Angular 2 applications
+14.  Better syntax and application structure
+
+
+What Are Angular Directives?
+Angular Directive is a TypeScript class which is declared as a @directive decorator.
+
+The directives allow you to attach behavior to DOM elements and the @directive decorator provide you an additional metadata that determines how directives should be processed, instantiated, and used at run-time.
+
+What Are decorators?
+The Decorators are functions that modify JavaScript classes and it also used for attaching metadata to classes.
+Selector – It is a CSS selector that tells Angular to create an instance of this component wherever it finds the corresponding tag in template HTML.
+Inputs– The list of class property names to data-bind as component inputs
+Outputs - The list of class property names that expose output events that others can subscribe too
+Host– These properties use to map the class property to host element bindings for properties, events, actions, and attributes.
+Providers - list of providers available to this component and its children
+Queries– To configure queries that can be injected into the component
+
+
+We have 3 types of Directives in Angular -
+1. Component
+2. Attribute Directives
+3. Structural Directives
+Components - The component is a directive with their own templates and it is responsible for how a component should be processed, instantiated and used at run-time.
+
+Structural Directives - The structural directive is a directive and it is responsible for change the DOM layout by adding, removing, and manipulating elements.
+The most of the common built-in structural directives are NgIf, NgFor, and NgSwitch.
+
+Attribute Directives - The Attribute directive is a directive and it is responsible for change the behavior of a specified element or component.
+
+What are the differences between @Component and @Directive?
+The components are used, when you want to create new elements in the DOM with their own HTML template.
+The attribute directives are used, when you want to change or update the existing elements in the DOM.
+
+
+AOT vs JIT Compiler - What Is the difference between JIT compiler and AOT compiler?
+ 
+What Is the Angular Compiler?
+The Angular compiler converts our applications code (HTML and TypeScript) into JavaScript code before browser downloads and runs that code.
+
+JIT (Just-in-Time) =>
+	JIT compiles our app in the browser at run-time.
+	Compiles before running
+	Each file compiled separately
+	No need to build after changing our app code and it automatically reflects the changes in your browser page
+	Highly secure
+	Very suitable for local development
+
+AOT (Ahead-of-Time) =>
+	AOT compiles our app code at build time.
+	Compiles while running
+	Compiled by the machine itself, via the command line (Faster)
+	All code compiled together, inlining HTML/CSS in the scripts
+	Highly secure
+	Very suitable for production builds
+	
+HTML + CSS + javascript => Aot Compiler - view
+Palindrome => A palindrome is a word or phrase that reads the same backward as forward. 
+Shallow copy => Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. 
+If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.
+Lets take an example - shallow Copy: It makes a copy of the reference to X into Y. as a copy of X’s Address. So, the addresses of X and Y will be the same i.e. they will be pointing to the same memory location.
+var employeeDetailsOriginal = {  name: 'A', age: 25, Profession: 'Software Engineer' };
+ 
+Let’s say you want to create a duplicate of this, so that even if you change the original values, you can always return to the original.
+var employeeDetailsDuplicate = employeeDetailsOriginal; //Shallow copy!
+ 
+If we change a value:
+employeeDetailsDuplicate.name = 'NameChanged';
+This statement will also change name from employeeDetailsOriginal, since we have a shallow copy, or a reference to var employeeDetailsOriginal. This means, you’re losing the original data as well.
+
+var employeeDetailsDuplicate ={name: employeeDetailsOriginal.name}; //Deep copy!
+var  employeeDetailsDuplicate.name ="Sanjay"
+Now if you change employeeDetailsDuplicate.name, it will only affect employeeDetailsDuplicate and not employeeDetailsOriginal
+
+other methord
+Shallow Copying Objects 
+Object.assign() 
+let obj = {  a: 1,  b: 2,};
+let objCopy = Object.assign({}, obj);
+
+console.log(objCopy); // result - { a: 1, b: 2 } 
+objCopy.b = 89; 
+console.log(objCopy); // result - { a: 1, b: 89 }
+console.log(obj); // result - { a: 1, b: 2 }
+
+Few Important methods
+Object.assign() => Copies the values of all enumerable own properties from one or more source objects to a target object.
+Object.create() => Creates a new object with the specified prototype object and properties.
+Object.defineProperty() => Adds the named property described by a given descriptor to an object.
+Object.defineProperties() => Adds the named properties described by the given descriptors to an object.
+Object.entries() => Returns an array of a given object’s own enumerable property [key, value] pairs.
+Object.freeze() => Freezes an object: other code can’t delete or change any properties. 
+
+
+hasOwnProperty => hasOwnProperty is a method available on object instances that allows to check if an object has a property directly on its instance. 
+const myObj = {clown: 'abc',police: 'sub'}
+console.log('clown' in myObj); // true
+
+Object.keys => The Object.keys static method returns an array with the property keys on an object:
+console.log(Object.keys(myObj)); //["clown", "police"]
+Object.keys can be really useful in allowing to use a for…of loop over an object:
+for (let k of Object.keys(myObj)) {
+  console.log(`Hey ${ myObj[k] }!`); // "Hey ! abc" // "Hey ! sub"
+
+}
+console.log('clown' in myObj); // true
+Object.values => Object.values takes an object and returns an array with the values, in the same order that a for…in loop would give us. For example:
+	myObj = {name :'Ashok',age:24,subject:'English'}
+	console.log(Object.values(myObj)) //["Ashok", 24, "English"]
+
+
+mean => The mean is the average of the numbers. It is easy to calculate: add up all the numbers, then divide by how many numbers there are.
+function mean(numbers) {
+    var total = 0, i;
+    for (i = 0; i < numbers.length; i += 1) {
+        total += numbers[i];
+    }
+    return total / numbers.length;
+}
+median =>  The "median" is the "middle" value in the list of numbers. Example: find the Median of {13, 23, 11, 16, 15, 10, 26}. 
+Put them in order: {10, 11, 13, 15, 16, 23, 26}.The middle number is 15, so the median is 15. (If there are two middle numbers, you average them.)
+
+str.trim() => str.trim() function is used to remove the white spaces from both the ends of the given string. 
+var str = "GeeksforGeeks      ";
+var st = str.trim();
+
+
+JavaScript does not throw an error if the number of arguments passed during a function invocation are different than the number of parameters listed during function definition. 
+
+function parameter(a,b,c){
+	console.log(arguments.length+"::"+arguments[3]) // 4::4
+	return a+b+c
+
+}
+console.log(parameter(1,2,3,4)) // Logs 6 (1 + 2 + 3, ignores 4)
+console.log(parameter(1,2)) // Logs NaN because by default if a corresponding argument is missing, it is set to undefined. parameter3 is assigned undefined and so 1+2+undefined = NaN
+Rest Parameters => Rest Parameter is an ES6 addition to JavaScript. To create a rest parameter prefix the last parameter in a function definition with ellipsis(…).
+function restParam(...restArgs){
+  console.log(restArgs.length); // Logs the number of arguments passed 5
+  console.log(restArgs[3]); // Logs the 4th argument4
+}
+restParam(1,2,3,4,5);
+// 5 is the number of arguments
+// 4 is the 4th argument
+
+
+Rest Parameters is a real array and methods like forEach and sort can be applied. Even though the arguments object has the length method, it is not a real array and using array methods like sort would only bring us misery and sorrow.
+Rest Parameters contain only the arguments that have no corresponding parameter while arguments object contains all the arguments passed to the function.
+function restParameter(...restArgs){
+	var s1 = restArgs.sort()
+	s1.forEach(function(v,i){
+		document.write(v+ "</br>")
+	})
+
+}
+restParameter(1,6,2,3,4,5) // 1,2,3,4,5,6
+DOMContentLoaded => DOMContentLoaded event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading. 
+
+
+What is a Web Worker? =>
+When executing scripts in an HTML page, the page becomes unresponsive until the script is finished.
+A web worker is a JavaScript that runs in the background, independently of other scripts, without affecting the performance of the page. You can continue to do whatever you want: clicking, selecting things, etc., while the web worker runs in the background.
+
+
+Server-Sent Events - One Way Messaging
+A server-sent event is when a web page automatically gets updates from a server.
+This was also possible before, but the web page would have to ask if any updates were available. With server-sent events, the updates come automatically.
+Examples: Facebook/Twitter updates, stock price updates, news feeds, sport results, etc.
+
+What is HTML Web Storage?
+With web storage, web applications can store data locally within the user's browser.
+Before HTML5, application data had to be stored in cookies, included in every server request. Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance.
+Unlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server.
+
+Web storage is per origin (per domain and protocol). All pages, from one origin, can store and access the same data.
+sessionStorage, localStorage and Cookies all are used to store data on the client side. Each one has its own storage and expiration limit. sessionStorage: similar to localStorage but expires when the browser closed (not the tab). Cookie: stores data that has to be sent back to the server with subsequent requests.
+
+Document Object Model => The Document Object Model (DOM) is a programming API for HTML and XML documents. It defines the logical structure of documents and the way a document is accessed and manipulated.
+Document Object Model => The Document Object Model (DOM) is a programming interface for HTML and XML documents. It represents the page so that programs can change the document structure, style, and content. The DOM represents the document as nodes and objects.
+
+:nth-child() and :nth-of-type()
+The :nth-child() and :nth-of-type() pseudo-classes allows you to select elements with a formula.
+The :nth-child selector allows you to select one or more elements based on their source order, according to a formula.
+
+The CSS Box Model => All HTML elements can be considered as boxes. In CSS, the term "box model" is used when talking about design and layout.The CSS box model is essentially a box that wraps around every HTML element. It consists of: margins, borders, padding, and the actual content. 
+Explanation of the different parts:
+Content - The content of the box, where text and images appear
+Padding - Clears an area around the content. The padding is transparent
+Border - A border that goes around the padding and content
+Margin - Clears an area outside the border. The margin is transparent
+block, inline, and inline-block — & how to tell the difference
+Web browsers treat every element as a kind of box. However, CSS has two different types of boxes—block and inline.
+inline => Displays an element as an inline element like paragraph and div. inline  does not support top and bottom margin and padding. height and width properties will have no effect 
+inline-block => Displays an element as an inline-level block container. it allows to set a width and height on the element also you can apply top and bottom margin and padding. 
+block => Displays an element as a block element (like <p>). It starts on a new line, and takes up the whole width.
+flex =>	Displays an element as a block-level flex container
+inline-flex =>	Displays an element as an inline-level flex container
+initial	=> Sets this property to its default value
+inherit	=> Inherits this property from its parent element. 
+flex-wrap => The flex-wrap property specifies whether the flexible items should wrap or not.
+flex-wrap: nowrap|wrap|wrap-reverse|initial|inherit;
+
+flex-basis => The flex-basis property specifies the initial length of a flexible item.
+flex-grow => The flex-grow property specifies how much the item will grow relative to the rest of the flexible items inside the same container.
+flex-grow: number|initial|inherit;
+
+flex-shrink  => The flex-shrink property specifies how the item will shrink relative to the rest of the flexible items inside the same container.
+flex-shrink: number|initial|inherit;
+
+
+
+
+============================================================================
+
+
+Renderer2
+It is used for UI rendering manipulation. Using Renderer2, we can create element, provide a text and then it can be appended with any existing element at run time on any event of an element.We can add and remove CSS classes, styles, HTML attributes using Renderer2 to change the UI.
+We can also set DOM property with a value at run time using Renderer2. We can append and remove a child element within a parent element using Renderer2. It can also be used to add a HTML comment to a given parent element. We can also bind an element to listen event using Renderer2. Here on this page we will discuss methods of Renderer2 using Angular component and directive. Renderer2 can be used with ElementRef. Now find the complete example step by step.
+
+
+@Component - @Component metadata to tell our application how we want the AppComponent to behave. We are defining the HTML element we want this class to target in the selector property as well as setting our template and styles via templateUrl and styleUrls, respectively. We are also injecting ROUTER_DIRECTIVES into our component at the directives property.
+we want to add in routing to our application and so we are going to import the appropriate modules and decorate our component with @Routes. To enable routing, we are going to import Routes and ROUTER_DIRECTIVES as well as AboutComponent, ExperimentsComponent and HomeComponent.
+
+
+brackets[] - allow you to define a one-way data binding from your Javascript to your HTML.
+parentheses ()- define a one-way data binding from your HTML to your Javascript code.
+StyleUrls - In Angular, you can use the styles or styleUrls property of the @Component metadata to define a style sheet for a particular component.
+
+Filters/pipes - Angular pipes provide formatting and transformation for data in the template, similar to AngularJS filters. Many of the built-in filters in AngularJS have corresponding pipes in Angular. For more information on pipes, see Pipes.
+
+
+Angular 2 Property Binding
+Property binding can be defined either by wrapping the attribute in [brackets] or by prefixing bind- with the attribute name. Property binding allows us to send logic from the component class, to the view.
+ 
+ <img [src]="imageUrl">
+<img bind-src="imageUrl">
+
+Angular 2 Event Binding
+Event binding allows us to work in reverse from property binding. We can send information from the view, to the component class. Such information usually involves a click, hover or typing. Below is an example of event binding:
+
+Notice the 2 img elements. Once again, both achieve the same result.  Event binding can be defined either by wrapping the event in (paranthesis), or by prefixing it with on-. In the scenario above, if a person clicks on the image, the console will log "Hey!".
+
+<img [src]="imageUrl" (click)='myMethod()'>
+<img [src]="imageUrl" on-click='myMethod()'>
+
+EVENT OBJECT
+To capture the event object, pass $event as a parameter in the event callback from the template:
+<button (click)="clicked($event)"></button>
+
+Template reference variables
+A template reference variable is simply a named reference to a DOM element within a template. You can view it as something similar to id attribute of an html element. You mark a DOM element with a template reference and then query it inside a class using ViewChild decorator. 
+ template:`<span #tref>I am span</span>`
+ @ViewChild("tref", {read: ElementRef}) tref: ElementRef;
+ @ViewChild([reference from template], {read: [reference type]});
+  ngAfterViewInit(): void {// outputs `I am span`
+	console.log(this.tref.nativeElement.textContent);
+    }
+
+If you ever needed to insert new component or template programmatically, you probably used the ViewContainerRef service.
+Let’s start by going back to a pure JavaScript. Based on the markup below your task is to add a new paragraph as a sibling of the current one
+	<p class=”one”>Element one</p>
+For the simplicity let’s use JQuery:
+
+$('<p>Element two</p>').insertAfter('.one');
+When you need to add new DOM element (i.e., component, template) you need a place to insert the element.
+********A DOM element (container) where I can put your newly component as a sibling to this element.*******
+============================================================================
+
+
+What is the difference between HTML elements and tags?
+HTML elements communicate to the browser how to render text. 
+When surrounded by angular brackets <> they form HTML tags. For the most part, tags come in pairs and surround text.
+
+What is the difference between getJSON() Method and get() Method.
+This is same as get() method, the only difference is that getJSON() method specifically retrieves JSON data whereas get() method retrieves any type of data. It is like shortcut method to retrieve JSON data.
+ 
+jQuery load() Method
+The jQuery load() method allows HTML or text content to be loaded from a server and added into a DOM element.
+
+Parameters Description:
+url: request url from which you want to retrieve the content
+data: JSON data to be sent with request to the server.
+callback: function to be executed when request succeeds.
+
+The following example shows how to load html content from the server and add it to div element.
+$('#msgDiv').load('/demo.html');
+ 
+<div id="msgDiv"></div>
+
+Points to Remember:
+$.get(), $.getJSON() method allows you to send asynchronous http GET request to retrieve the data from the server without reloading whole page.
+$.get() can be used to retrieve any type of response from the server.
+$.getJSON() method is a short form method to retrieve JSON response from the server.
+$.load() method allows HTML or text content to be loaded from a server and added into a DOM element.
+
+
+What's default DTD if not mentioned in doctype declaration?
+ If the DOCTYPE are not declare the browser will go into Quirk mode.
+ 
+ 
+
+
+ 
+The :nth-child() is a CSS pseudo-class selector that allows you to select elements based on their position in a group of siblings.
+:nth-child() also allows you to select one or more elements using a formula (an+b) that is passed to it as an argument.
+:nth-last-child()=> :nth-last-child() is a CSS pseudo-class selector that allows you to select elements based on their position in a group inside their container, starting from the last element upwards.
+ 
+For example, 
+:nth-child(3n+1) will select the 1st (3*0 +1 = 1) child, 4th (3*1+1 = 4) child, 7th (3*2 +1 = 7) child, 
+ 
+ 
+ The :nth-child is a pseudo class used to select elements by a numeric expression.
+ :nth-child(even),:nth-child(odd) 
+ 
+ The :nth-of-type() is a CSS pseudo-class selector that allows you to select elements based on their type of element in a group of siblings.
+
+ Using the :nth-of-type() allows you to select a specific child within a type of element, within the same parent element
+ 
+ 
+ 
+ 
+:not() Selector
+Selects all elements that do not match the given selector.
+:nth-child() Selector
+Selects all elements that are the nth-child of their parent.
+:nth-last-child() Selector
+Selects all elements that are the nth-child of their parent, counting from the last element to the first.
+:nth-last-of-type() Selector
+Selects all the elements that are the nth-child of their parent in relation to siblings with the same element name, counting from the last element to the first.
+
+:nth-of-type() Selector
+Selects all elements that are the nth child of their parent in relation to siblings with the same element name.
+ 

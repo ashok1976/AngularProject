@@ -1,0 +1,357 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>Form </title>
+
+<style>
+ul{color:#000}
+ul li.favorite{color:blue}
+ul li#must-buy{color:#F00}
+*{box-sizing:border-box}
+ul li{color:blue;}
+.container{width:600px; margin: 10px auto; padding:10px; background:#f1f1f1;border:1px solid #ddd}
+.row{ position: relative;width: 100%; padding: 5px; margin-bottom: 10px}
+.row input{border:1px solid #ddd; outline: none; height: 25px; line-height: 25px; width:100% ; padding:0 5px}
+.arrow{display:inline-block; position:relative; padding:0 5px}
+.arrow:after{ position:absolute; top:8px; content:""; width:0; height:0; right:-15px; border-left:7px solid transparent; border-right:7px solid transparent; border-top:7px solid red}
+#submit{ background:#000; color:#fff; padding:8px 0; line-height:inherit; height:auto}
+.txt{width:50%; margin:0 auto; line-height:25px;}
+.my-circle{shape-outside:circle(50%); background-color:#3ea7c2;width:100px;height:100px;float:left;}
+table{font:normal 14px/13px arial; color:#000; background:#fff; }
+.cartItem{font-family:Arial; color:#000; background:#fff;}
+.cartItem h1{font-size:16px;  font-weight:600; color:#333; padding:5px 0 0 ;
+	 margin: 5px 0 5px 0}
+.cartItem span {color:#0066c0; font-weight: bold; font-size:14px }
+.sep{border-bottom:1px #ddd dotted; margin:10px 0; width:100%; clear:both }
+</style>
+</head>
+
+
+<body>
+
+<div id="success"></div>
+
+<div class="container">
+<input type="hidden" id="nameID" value="">
+<input type="hidden" id="emailID" value="">
+<input type="hidden" id="mobileID" value="">
+<form   id="myForm" name="myForm" >
+<div class="row"><input type="text" id="name" placeholder="name" /></div>
+<div class="row"><input type="text" id="email" placeholder="email" /></div>
+<div class="row"><input type="text" id="mobile" placeholder="mobile" /></div>
+<div class="row"><input type="button" id="submit" onclick="validation()" value="Submit form"> </div>
+<div class="row"><input type="button" id="save" onclick="saveForm(this)" value="Save form" style="display:none"> </div>
+</form> 
+
+
+
+
+<div id="formData">
+        
+        </div>
+</div>
+<!--<div class="arrow">arrow</div>-->
+
+<div id="nArray"></div>
+<div id="loop"></div>
+<div id="tab"></div>
+
+<ul>
+<li><a href="#" data-name-type="Banana"  data-price-type="5" onclick="shoppingItem(this)">Banana </a></li>
+<li><a href="#" data-name-type="Orange"  data-price-type="40" onclick="shoppingItem(this)">Orange </a></li>
+<li><a href="#" data-name-type="Banana"  data-price-type="5" onclick="shoppingItem(this)">Banana </a></li>
+</ul>
+<a href="javascript:void(0);" id="card-add" >Add Item</a><br />
+<div id="cartItem" class="cartItem">
+
+
+</div>
+<script>
+cart =[];
+obj= {id:1, name:'banana', price:15, count:1}
+	for(key in obj){
+		//console.log(obj[key])
+
+	}
+//console.log(obj)
+function Item(name,price,count){
+	this.name= name;
+	this.price= price;
+	this.count=count;
+}
+/*
+var brush = new Item("Banana",1.99,1);
+cart.push(new Item("mobile",1.99,2));*/
+var cartshop=[]
+function addItem(name,price,count){
+	for(key in cartshop){
+		if(cartshop[key].name === name){
+		 cartshop[key].count +=count;
+	      return;
+		}
+	}
+	item = new Item(name,price,count);
+	cartshop.push(item)
+}
+
+function removeItem(name){
+	for(i in cartshop){
+		if(cartshop[i].name===name){
+			cartshop[i].count --;
+			if(cartshop[i].count===0){
+				return cartshop.splice(i,1)
+			}
+		}
+	}
+}
+//addItem("Banana", 1.99, 2)
+//console.log(cartshop[0].count+"====");
+//console.log(cartshop[0].count);
+function listCard(){
+	var cardcopy =[];
+	for(i in cartshop){
+		item= cartshop[i];
+		itemcopy={}
+		for(p in item){
+			itemcopy[p] = item[p]
+		}
+		cardcopy.push(itemcopy)
+	}
+
+return cardcopy
+}
+
+function shoppingItem(element){
+name= element.getAttribute('data-name-type');
+price= element.getAttribute('data-price-type');
+
+	addItem(name,price, 1);
+	cardDisplay();
+}
+
+
+function cardDisplay(){
+	myArray = new listCard();
+	output="";
+	for(key in  myArray){
+		output +='<h1>'+ myArray[key].name+'</h1>'
+		output +='<span> M.R.P. :  </span> &#x20B9; '+myArray[key].price +" FREE Delivery </br>";
+		output +='<span> No of item </span>'+ myArray[key].count+"</br>";
+		output +='<span> Total price </span>'+parseInt((myArray[key].price) * (myArray[key].count));
+		output +='<div class="sep"></div>'
+		}
+		document.getElementById('cartItem').innerHTML = output;
+}
+
+a=['a','b','c'];
+b = a;
+b=a.slice()
+b.push('e')
+
+console.log(a+"==A===")
+console.log(b+"==B===")
+function card(message,count){
+	for(i=0; i<count; i++){
+		console.log(message+index)
+		index++
+		
+	}
+	item = new Item(name,price,count);
+	cartshop.push(item)
+
+}
+
+//card('Hello',2)
+
+
+var grids = [ [10, 20, 30, 40],[50, 60, 70, 80],[90, 100, 110, 120]];
+for (var i=0; i < grids.length; i++) {
+for(var j=0;j<grids[i].length; j++){
+        if(i==1){
+		//	console.log(grids[i][j]+"=====" );
+        }
+     //document.write("grids["+i+"][" + j+"] : " +grids[i][j] + "<br>" );
+	// document.getElementById('nArray').innerHTML = "grids["+i+"][" + j+"] : " +grids[i][j] + "<br>"
+	}
+}
+obj =[
+    {id:1, name:'Dainikbhaskar.com ', age:42,email:'ashok.kumar@bhaskar.com'},
+    {id:2, name:'Sanjay ', age:47,email:'Sanjay.kumar@bhaskar.com'},
+    {id:3, name:'Anju ', age:45,email:'Anju.kumar@bhaskar.com'},
+    {id:4, name:'Madhuri',age:49,email:'Madhuri.kumar@bhaskar.com'},
+    {id:7, name:'Sanjay ', age:47,email:'Sanjay.kumar@bhaskar.com'},
+    {id:6, name:'Anju ', age:45,email:'Anju.kumar@bhaskar.com'},
+    {id:7, name:'Madhuri',age:49,email:'Madhuri.kumar@bhaskar.com'},
+    {id:8, name:'Sanjay ', age:47,email:'Sanjay.kumar@bhaskar.com'},
+    {id:9, name:'Anju ', age:45,email:'Anju.kumar@bhaskar.com'},
+    {id:10, name:'Madhuri',age:49,email:'Madhuri.kumar@bhaskar.com'},
+    
+]
+
+
+var html="";
+html +='<table border="1" cellpadding="5" style="border-collapse:collapse">';
+for(i=0;i<obj.length;i++){
+    newArray = obj[i]
+	
+    newArray1= new Array(newArray)
+	//console.log(newArray1+"============")
+    html +='<tr>'
+    for(key in newArray1){
+        html +='<td>'+newArray1[key].id+'</td>'
+        html +='<td>'+newArray1[key].name+'</td>'
+        html +='<td>'+newArray1[key].email+'</td>'
+        html +='<td>'+newArray1[key].age+'</td>'
+}
+html +='</tr>'
+}
+html +='</  table>'
+document.getElementById('tab').innerHTML =html
+
+</script>
+
+
+
+
+
+
+<script>
+	tbl =''; index=1;
+    var flag=1;    
+	var nameID= document.getElementById('nameID');
+	function validation(){
+	var  name= document.getElementById('name');
+	var  email= document.getElementById('email');
+	var  mobile= document.getElementById('mobile');
+     if(name.value==''){
+        name.focus();
+        alert('Enter you name');
+        return false;
+       }
+	   if(email.value==''){
+        email.focus();
+        alert('Enter your email');
+        return false;
+       }
+	    if(mobile.value==''){
+        mobile.focus();
+        alert('Enter your mobile');
+        return false;
+       }
+	  
+       if(flag==1){
+         tbl +='<table width="100%" border="1" cellpadding="5" style="border-collapse:collapse" id="table">';
+         flag=2
+        }
+       if(name.value !=='' && email.value !==''  && mobile.value !==''){
+		 document.getElementById('success').innerHTML= "Data submitted sucessfully";
+        tbl +='<tr id="row_'+index+'">';
+        tbl +='<td>'+index +'</td>';  
+        tbl +='<td width="40%" id="nameField">'+name.value +'</td>'; 
+		tbl +='<td width="40%" id="emailField">'+email.value +'</td>';
+		tbl +='<td width="20%" id="mobileField">'+mobile.value +'</td>'; 
+        tbl +='<td ><input type="button" value="edit" onClick="editForm(this)" /> </td>';  
+		tbl +='<td><input type="button" value="delete" id="btn'+index+'" onClick="dataDelete(this)" /> </td>';     
+        tbl +='</tr>';
+		blackField()
+        if(flag==1){
+            tbl +='</table>';
+            flag=2
+         }
+      
+        document.getElementById('formData').innerHTML=tbl;
+		//flag++
+    }
+		index++
+  }
+
+function blackField(){
+	document.getElementById('name').value = "";
+	document.getElementById('email').value = "";
+	document.getElementById('mobile').value = "";
+}
+function dataDelete(element){
+		var childID = element.parentNode;
+		var parentID = element.parentNode.parentNode;
+		parentID.remove();
+		blackField()
+		
+
+
+
+}
+function saveForm(element){
+	var  name= document.getElementById('name').value;
+	var  email= document.getElementById('email').value;
+	var  mobile= document.getElementById('mobile').value;
+	if(name.value == ''){
+        name.focus();
+        alert('Enter you name');
+        return false;
+       }
+	   if(email.value == ''){
+        email.focus();
+        alert('Enter your email');
+        return false;
+       }
+	    if(mobile.value == ''){
+        mobile.focus();
+        alert('Enter your mobile no');
+        return false;
+       }
+	var dataName=document.getElementById('nameID').getAttribute('data-value');
+	var trName= document.getElementById(dataName);
+	
+	var dataEmail=document.getElementById('emailID').getAttribute('data-value');
+	var trEmail= document.getElementById(dataEmail);
+	var dataMobile=document.getElementById('mobileID').getAttribute('data-value');
+	var trMobile= document.getElementById(dataMobile);
+	
+		
+		
+	    if(name.value !=='' && email.value !=='' &&  mobile.value !==''){
+		
+	   	if(dataName === trName.id && dataEmail===trEmail.id && dataMobile===trMobile.id) {
+		 trName.childNodes[1].innerHTML = name
+		 trEmail.childNodes[2].innerHTML = email;
+		 trMobile.childNodes[3].innerHTML = mobile
+		}else{
+		 document.getElementById("nameField").innerHTML = name;
+		 document.getElementById("emailField").innerHTML = email;
+		 document.getElementById("mobileField").innerHTML = mobile;
+		 console.log(1)
+		}
+		document.getElementById("submit").style.display="block";
+	   	document.getElementById("save").style.display="none";
+		blackField();
+	}
+}
+
+function editForm(element){
+
+	var parentID = element.parentNode.parentNode;
+	alert(parentID.sibilings.length)
+	
+	var nameTxt = parentID.childNodes[1].textContent;
+	document.getElementById("name").value = nameTxt;
+	document.getElementById('nameID').value = nameTxt;
+	document.getElementById('nameID').setAttribute('data-value',parentID.id)
+
+	var emailTxt = parentID.childNodes[2].textContent;	
+	document.getElementById('email').value = emailTxt;
+	document.getElementById('emailID').value = emailTxt
+	document.getElementById('emailID').setAttribute('data-value',parentID.id)
+	
+	var mobileTxt = parentID.childNodes[3].textContent;	
+	document.getElementById('mobile').value = mobileTxt;
+	document.getElementById('mobileID').value = mobileTxt
+	document.getElementById('mobileID').setAttribute('data-value',parentID.id)
+	
+	
+	document.getElementById("submit").style.display="none";
+	document.getElementById("save").style.display="block";
+}
+</script>
+</body>
+</html>

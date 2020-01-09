@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<head>
+<meta harset"utf-8" />
+<title>Form </title>
+</head>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<body>
+<div id="container">
+ <div data-index="1">Box 1</div>
+ <div data-index="6">Box 2</div>
+ <div data-index="2">Box 3</div>
+ <div data-index="5">Box 4dfdfdasfsdfdf</div>
+ <div data-index="4">Box 5</div>
+ <div data-index="3">Box 6</div>
+</div>
+
+<script>
+var div = document.getElementById('container');
+var child = div.children;
+var p = []
+var len = div.childElementCount; //childElementCount is count the length of children
+alert(len)
+for (var i=0;i <len; i++) {
+	var data = child[i].getAttributeNode('data-index');
+	if(data.nodeValue % 2 ===0){
+		child[i].style.color="blue";
+		console.log( child[i]);
+	}
+	var value = div.children[i].textContent; //
+	var myArray = new Array();
+	p.push(value);
+	var removeContent = child[i].innerHTML='';  
+	
+}
+var rev= p.reverse();
+p.forEach(function(v,i){
+	div.children[i].textContent=v;
+})
+
+
+str ="How are you"
+var s= str.split(" ");
+var s= str.split(" ", s.length-1);
+
+today = new Date();
+date = today.getDate()
+month = today.getMonth();
+year = today.getFullYear();
+if(month<10){
+month ="0"+today.getMonth()
+}else{
+month =today.getMonth()
+}
+
+
+function timeAlgorithm(){
+	today = new Date()
+	getHours = today.getHours()
+	if(getHours >12 && getHours <16){
+		console.log("Good afternoon")
+	}else if( getHours > 0 && getHours <12){
+		console.log("Good Morning")
+	}else if(getHours >16 && getHours <20){
+		console.log("Good evening")
+	}else{
+		console.log('Good Night')
+	}
+}
+timeAlgorithm()
+
+objAssign = {
+	init:function(){
+	return this.soundinit
+	
+	},
+	
+	mySound : function(){
+		return this.sound +"\n"+ this.soundinit;
+	}
+}
+
+marks = Object.assign({},objAssign);
+marks.sound ="MySound is ---------";
+marks.soundinit =" My sound init ---------";
+console.log(marks.mySound())
+console.log(marks.init())
+
+
+function isPrime(n){
+	divisor=  2;
+	fac = []
+	while( n > 2){
+		if( n % divisor == 0){
+			return false;
+		}else{
+		divisor++
+		}
+	}
+ return true;
+
+}
+//console.log(isPrime(9))
+
+
+var prototypeObject ={ 
+	display: function(){
+		 return "My name  is " + this.firstName+" & "+ this.age +" years old."
+	}
+}
+
+person = Object.create(prototypeObject,{
+'firstName': {
+	value: "Ashok kumar", 
+	writable: true, 
+	enumerable:true
+      },
+    'age': {
+	value: 35,
+	writable:true,
+	enumerable:true
+      }
+
+})
+
+
+console.log(person.display())
+console.dir(prototypeObject)
+
+
+function SuperType(firstname, lastname){
+	this.firstname = firstname;
+	this.lastname = lastname
+}
+SuperType.prototype.fullName = function(){
+	return this.firstname +" "+ this.lastname
+}
+fName = new SuperType('Ashok kumar', 'Panthari');
+fName.fullName() //Ashok kumar Panthari;
+
+
+function SubType(firstname, lastname,age){
+	SuperType.call(this,firstname, lastname);
+	this.age =age
+}
+SubType.prototype = Object.create(SuperType.prototype)
+
+//Create SubType objects
+var subTypeObj1= new SubType("Virat", "Kohli", 26);
+console.log(subTypeObj1.age);
+
+console.log(fName.fullName())
+console.log(subTypeObj1.fullName())
+
+//Here we have copied the prototype of the SuperType to the SubType.prototype using Object.create method. Rest everything is same as the inheritance in JavaScript.
+
+function checkNagitive(x){
+	if(x >0 ){
+		return true;
+	}else{
+	return false}
+	}
+console.log(checkNagitive(-10))
+function checkNum(str){
+
+	last = str.substring(str.length,str.length-1);
+	middle= str.substring(1, str.length-1);
+	third = str.substring(0,1)
+	all = last.concat(middle,third).toUpperCase();
+	console.log(all)
+	
+}
+checkNum('Hello')
+
+function strfrong(str){
+	first = str.substring(0,1);
+	return  first + str + first;
+}
+console.log(strfrong('ABC'));
+
+var marius = {
+	name :"Ashok ",
+	company:"Dainikbhaskar.com",
+	website:"https://www.dainikbhaskar.com"
+}
+
+const  {name,...rest} = marius;
+console.log(marius.rest)
+
+
+
+function abc(name){
+this.name = name
+}
+
+n = new abc("Ashok Kumar");
+
+abc.prototype.lastname = "Panthari -----"
+
+abc.prototype.methord = function(){
+	return this.name + " " + this.lastname
+}
+n = new abc("Ashok kumar", "Panthari")
+
+console.log(n.methord())
+
+function outerFunction(name,age){
+this.age = name;
+this.age = age;
+		function innerFunction(){
+			console.log(this.name +" "+ this.age)
+		}
+		return innerFunction()
+
+}
+
+outerFunction('Ashok kumar',22)
+
+function add(x){
+	return function(y){
+		return x+y
+	}
+}
+var first = add(2);
+	second = add(2)
+	console.log(second(5))
+
+</script>
+<div class="mobileRhs">
+  <div class="fix_notification"><span> bell</span></div>
+  <div class="search" ><a href="javascript:void(0);"></a>
+    <div class="searchForm">
+      <input class="searchInput">
+      <button class="searchBtn" type="submit"></button>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
