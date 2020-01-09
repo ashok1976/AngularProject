@@ -1,0 +1,85 @@
+
+
+<br><br><br>
+<div *ngFor="let t of messages | filesize">{{t.text}}</div><br><br><br>
+
+
+
+<app-alert name="Angular 6" [alert]='alert' [message]="message"> </app-alert>
+<app-alert name="Angular 7" [alert]='alert'></app-alert>
+<app-alert name="Angular 8" [alert]='alert'></app-alert>
+
+<div class="mess"><input type="text" [(ngModel)]="message" placeholder=" enter your message" ></div>
+
+
+<h1>Content Child -  <span> get from elementRef </span></h1>
+ 
+<div class="para">
+    @ContentChild gives the first element or directive matching the selector from the content DOM. 
+    If new child element replaces the old one matching the selector in content DOM,
+    then property will also be updated. @ContentChild has following metadata properties.
+    <app-tab *ngFor="let tab of tabs" [title]="tab.title" (toggle)="toggle($event)">
+        {{tab.body}} 
+        <div class="tab" #contentChildEelRef> ========================== </div>
+         <ul class="tab"> 
+           <li [attr.data-message-id]="message.id" *ngFor="let message of messages" #contentChildrenEelRef>
+               {{message.text}}</li>
+        </ul>
+    </app-tab>
+</div>
+
+<div appDirective> Directive color change</div>
+<div appDirective> Directive color change</div>
+<div viewChildren data-id="one"> Direct color change</div>
+<div viewChildren >  Direct color change</div>
+<div viewChildren  title="Direct color change"> Direct color change</div>
+<button (click)="change('blue')">Color Change the Directive</button><br>
+<button (click)="change('red')">Color Change the Directive</button><br>
+<button (click)="changeColor('blue')" >Color Change the Directive</button>
+<app-messages></app-messages>
+<button (click)="increase()">Increase</button>
+
+<ng-template ngFor let-person [ngForOf]="allPersons" let-i="index">
+    <p> {{i+1}} :: {{person.name}} {{person.age}}</p>
+</ng-template>
+
+
+<div *ngIf="toggleFlag2 ; else msgElseBlock">
+    <div  class="content">Hello World!</div>
+</div>
+
+<ng-template #msgElseBlock>
+    <div class="content">Else Block: Hello World! </div>
+</ng-template>
+
+<button  class="btn" type="button" (click)="onToggle2()">Toggle</button>
+
+<div *ngIf="toggleFlag3; then thenBlock; else elseBlock"> </div>
+<ng-template #elseBlock>
+    <div  class="content">Else Block: Hello World! </div>
+</ng-template>
+
+<ng-template #thenBlock>
+    <div  class="content">Then Block: Hello World! </div>
+</ng-template>
+
+<button type="button" class="btn" (click)="onToggle3()">Toggle</button>
+<div class="cb10"></div>
+
+<ng-container *ngTemplateOutlet="DefaultHeader;context:{brand:'Dainikbhakar',para:'bhaskar is a media brand'}"></ng-container>
+
+<ng-template #DefaultHeader let-data let-b="brand" let-p="para" >
+        <div> 
+                <P> Default  Header --- {{b}}</P>
+            <P> Default  Header --- {{p}}</P>
+        </div>
+</ng-template>
+
+<ng-template #DefaultFooter>
+        <div> Default Footer ============= </div>
+    </ng-template>
+    <ng-template #DefaultBody>
+            <div> Body Default ============= </div>
+        </ng-template>
+
+<ng-container *ngTemplateOutlet="templateRef"></ng-container>

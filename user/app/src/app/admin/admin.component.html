@@ -1,0 +1,23 @@
+<div class="dashboradContainer">
+        <section  class="w30">
+        <h2>Frangment In Angular</h2>
+        <ul>
+        <li *ngFor="let link of ParentID"><a routerLink="product/" [fragment]='link' >{{link}}</a></li>
+        <li><a routerLink="admin/productdetail">Product Detail</a></li>
+        <li>Product</li>
+
+        <li><a routerLink="ng-content">Ng Content</a></li>
+        </ul>
+        
+        
+        
+        </section>
+        <section  class="w70">
+         
+          <div class="cb10"></div>
+               <router-outlet></router-outlet>
+               
+             </section>
+        
+        </div>
+        

@@ -1,0 +1,16 @@
+<div class="form">
+    <ul class="tabs">
+        <li (click)="tab=true" [ngClass]="{'active': tab}">Registration</li>
+        <li (click)="tab=false" [ngClass]="{'active': !tab}">Login</li>
+        
+        
+    </ul>
+    <section class="login" *ngIf="!tab" >
+       <app-log></app-log>
+     </section>
+ 
+    <section class="login" *ngIf="tab">
+        <app-registration></app-registration>
+        
+</section>
+</div>

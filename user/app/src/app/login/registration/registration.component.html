@@ -1,0 +1,50 @@
+<form [formGroup]="myForm" (ngSubmit)="onSubmit(myForm)">
+        <div class="row">
+            <label for="name">Name</label>
+            <input  id="name" autocomplete="off" formControlName="name" class="form-control" placeholder="Your name" required>
+            <div class="error" *ngIf="myForm.get('name').hasError('required')">Please enter your name </div>
+         <!--   
+           <div class="error" *ngIf="myForm.controls.name.errors.minlength">Please enter at least 5 characters</div> -->
+        </div>
+        <div class="row">
+            <label  for="userid">User ID</label>
+            <input  id="userid" autocomplete="off" formControlName="userid" class="form-control" placeholder="Your name" required>
+            <div class="error" *ngIf="myForm.get('userid').hasError('required')">Please enter Your user ID </div>
+        </div>
+
+
+        <div class="row">
+            <label  for="email">Email</label>
+            <input  id="email" autocomplete="off" formControlName="email" class="form-control" placeholder="Your email" required>
+            <div class="error" *ngIf="myForm.get('email').hasError('required')">
+                Please enter your email </div>
+  
+                <div class="error">{{exitID}} </div>
+        </div>
+
+        <div class="row">
+                <label  for="password">password</label>
+                <input id="password" autocomplete="off" formControlName="password" class="form-control"    required />
+                <div class="error" *ngIf="myForm.get('password').hasError('required')">
+                    Please enter your password</div>
+            </div>
+
+
+
+
+        <div class="row">
+           
+            <select formControlName="role">
+                <option selected="UI Developer">UI Developer</option>
+                <option>App</option>
+                <option>PHP</option>
+                
+            </select>
+            <div class="error" *ngIf="myForm.get('role').hasError('required')">Please select your role</div>
+        </div>
+
+
+
+
+        <button type="submit" class="btn" [disabled]="myForm.invalid"> Send </button>
+    </form>

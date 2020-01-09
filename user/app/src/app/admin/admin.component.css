@@ -1,0 +1,8 @@
+.dashboradContainer{width:100%; display:flex; flex-wrap: nowrap;justify-content:space-between; align-items:top;}
+.w30{width:25%; background:#f1f1f1; min-height:600px;} 
+.w30 h2{font:600 16px/30px Arial; color:#333; padding:5px 10px; border-bottom:2px solid #DDD }
+.w30 ul{width:100%}
+.w30 ul li{font:14px/25px Arial;padding:5px 15px;color:#000;  border-bottom: 1px dashed  #ddd; width:100%}
+.w30 ul li a{color:#000;}
+.w70{width:72%;}
+.contentM{font:bold 13px/25px Arial;padding:5px 0px;color:#000;  margin:10px 0 0}

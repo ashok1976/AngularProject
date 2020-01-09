@@ -1,0 +1,5 @@
+/* You can add global styles to this file, and also import other style files */
+*{margin:0; padding:0; list-style-type: none; box-sizing: border-box;}
+ul{list-style: none;}
+.grey{ background:#ddd}
+#container{width:1266px; margin:0 auto;}

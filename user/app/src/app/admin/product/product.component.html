@@ -1,0 +1,38 @@
+
+
+
+<table border="1">
+    <tr>
+      <th>id</th>
+      <th>Name</th>
+      <th>Email</th>
+      <th>body</th>
+     </tr>
+     <tr *ngFor ="let d of data | slice:0:20">
+        <td align="top"><a [routerLink]="['/admin/productdetail', d.id]">{{d.id}}</a></td>
+        <td align="top">{{d.name}}</td>
+        <td align="top">{{d.email}}</td>
+        <td align="top">{{d.body}}</td>
+       </tr>
+    </table>
+
+
+<div *ngFor="let data of childID" [attr.id]=data>
+  <h2> {{data}}</h2> 
+<p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+     print, graphic or web designs. The passage is attributed to an unknown typesetter 
+     in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum 
+     et Malorum for use in a type specimen book.<br /><br />Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+            print, graphic or web designs. The passage is attributed to an unknown typesetter 
+            in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum 
+            et Malorum for use in a type specimen book.</p><br/>
+            <p>Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                    print, graphic or web designs. The passage is attributed to an unknown typesetter 
+                    in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum 
+                    et Malorum for use in a type specimen book.<br /><br />Lorem ipsum, or lipsum as it is sometimes known, is dummy text used in laying out
+                           print, graphic or web designs. The passage is attributed to an unknown typesetter 
+                           in the 15th century who is thought to have scrambled parts of Cicero's De Finibus Bonorum 
+                           et Malorum for use in a type specimen book.</p>
+</div>
+
+

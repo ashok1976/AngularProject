@@ -1,0 +1,3 @@
+nav{display:flex;width:1200px; margin:0 auto; height:30px;
+     align-items: center; justify-content: space-between;}
+nav ul li{ display:inline-block; font:15px/18px Arial;color:#666; padding:0 10px}
