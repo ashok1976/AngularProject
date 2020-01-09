@@ -1,0 +1,8 @@
+.w995px{ width:100%; max-width:1266px; margin:0 auto}
+h1{ font-size: 20px; line-break: 20px; font-family: arial; color:#000}
+
+.tab{width:100%;  background-color:#f1f1f1; color:#000; display:flex; list-style-type:none; padding:0; 
+
+}
+.tab li{ padding: 5px 20px 5px ; }
+.tab li:first-child{border-right:1px solid #000;}

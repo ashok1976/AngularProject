@@ -1,0 +1,21 @@
+
+.list{ margin: 0; padding:10px}
+.list li{margin-bottom:8px;color:#333;position:relative;padding:0 0 0 15px; list-style: none; margin: 0 0 10px 0}
+.list li:before{content:"";position:absolute;top:8px;left:0;background:#ff5400;width:8px;height:8px; border-radius:50%;}
+.list li p{font:17px/27px Gujarati_Web_Head_Test_exp,Arial,Helvetica,sans-serif;padding:0 5px;margin:0}
+.list li.active{ color:green}
+.list li .small_img{background:#fff;width:100%;max-height:302px;margin:10px 0 0}
+
+.list li.one {
+    color: green;
+}
+.list li.two {
+    font-size: 20px;
+}
+.list li.three {
+    color: red;
+}
+.list li.four {
+    font-size: 15px;
+}
+

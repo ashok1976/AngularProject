@@ -1,0 +1,14 @@
+<h2>HOME</h2>
+<br><br>
+
+
+<input type="text" name ="name" #val placeholder="Enter value">
+<button (click)="updateData(val)">Send Data</button>
+<button (click)="destroycomponent()">destroy component</button>
+<button (click)="restorecomponent()">restore  component</button>
+<app-view-child *ngIf="componentDestroy" [myValue] ="parentValue">ngContentViewInit {{parentValue}}</app-view-child>
+<app-loader></app-loader>
+<ul><li *ngFor="let p of data | slice:0 : 90">{{p.id}}</li>
+
+</ul>
+

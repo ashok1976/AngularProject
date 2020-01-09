@@ -1,0 +1,32 @@
+<div  class="overlay" (click) ="remove()"  *ngIf="showForm">
+ 
+<section class="formWidth" (click)="stopPropo($event)">
+  <!--
+      <ul class="tabs">
+        <li *ngFor= "let tab of mytab; let index"  [ngClass]="{'active' : tab == index}" > <a (click)="tab = index+1" >tab-------</a></li>
+
+        </ul>
+        
+        <div  id="tabPanel1" *ngIf="tab==1">
+            ABC TAB 1
+        </div>
+        <div class="tab-panel" *ngIf="tab==2">
+            ABC TAB 2
+        </div>
+        <div class="tab-panel" *ngIf="tab==3">
+            ABC TAB 3
+        </div> 
+    <ul class="formTab" >
+        <li *ngFor="let tab of tabs; let i = index;  let first = first "  
+        (click)="isActive(tab)" [ngClass]="{'active': iSelected(tab)}" id ="{{tab}}">{{tab}}</li>
+        
+
+    </ul> 
+<div class="none" [ngClass]="{'active' : iSelected(button1.title == Signup)}" #button1 title="Signup" >1</div>
+<div class="none" [ngClass]="{'active' : iSelected(button2.title)}" #button2  title="SingIn">2</div>
+-->
+<app-form (showFormChange)="remove($event)"></app-form> 
+</section>
+
+
+

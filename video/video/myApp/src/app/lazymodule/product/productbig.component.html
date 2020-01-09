@@ -1,0 +1,13 @@
+
+<section class="w995px">
+    <div [innerHTML] ="myHTML" ></div>
+    <div> {{myHTML}}</div>
+    <ul>
+      <li *ngFor="let product of products">
+        <h2 [innerHTML]="product.title"> </h2>
+        <div [innerHTML] ="product.body"></div>
+        <a class="read" [routerLink]="['product-detail']" [queryParams]="{id: product.id,title: product.title,body: product.body}">Read More  </a>
+        </li>
+    
+    </ul>
+  </section>

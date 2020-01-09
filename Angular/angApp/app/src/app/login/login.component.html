@@ -1,0 +1,33 @@
+
+
+<form #myLogin="ngForm" (submit)="onLogin(myLogin)" >
+
+<fieldset>
+    <div class="form-group">
+        <label>Email</label>
+        <input type="email" class="form-control" [ngModel]="login.email" name="email" id="email" #email="ngModel"  email required>
+        <div *ngIf="!email.valid && !email.touched">
+<span *ngIf="email.errors.required">Please enter your name</span>
+<span *ngIf="email.errors.email">Please enter your proper email</span>
+
+        </div>
+        </div>
+
+        <div class="form-group">
+            <label>password</label>
+            <input  autocomplete="on" type="password" class="form-control" [ngModel]="login.password" name="password"  #password="ngModel"  required>
+                <div *ngIf="!password.valid && !password.touched">
+                 <span *ngIf="password.errors.required">Please enter your Passwordsss</span>
+
+
+                </div>
+            </div>
+                {{msg}}
+        <div class="form-group">
+           <button class="btn btn-primar" [disabled]="!myLogin.valid">Submit</button>
+            </div>
+
+</fieldset>
+
+
+</form>

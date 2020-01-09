@@ -1,0 +1,33 @@
+
+{{msg}}
+
+<br />
+<br />
+<br />
+
+<app-view-child  ></app-view-child>
+<button type="increase" name="" (click)="increase()">increase</button>
+<app-home (sendData)="getData($event)" [parentMsg] ="parentMessage"></app-home>
+
+{{cmsg}}
+<button (click)="loadComponent()">  load Dynamic Component</button>
+<button (click)="destroyComponent();">  Destry Dynamic Component</button>
+
+
+<!-- <p #dependOnBindings *ngIf="shouldDisplay">I depend on bindings.</p>
+<p #doNotDependOnBindings>I don't depend on bindings.</p> -->
+
+<ng-template #msgTempRef>
+        Hello World!
+  </ng-template>
+<ng-template #msg1>This is my ng template</ng-template>
+<div appDirective>appDirective</div>
+<div appDirective>appDirective</div>
+<div appDirective>appDirective</div>
+<div (click)="templateRef()" #temShow >1aaaaaa</div>
+<div child>1</div>
+<div child>1</div>
+{{innerHTMLMsg}}-------
+<div #myDom>I am Dom</div>
+<button (click)="incrementChildren()">Increment View Children </button>
+<div #tref> Start editing to see some magic happen :)</div>

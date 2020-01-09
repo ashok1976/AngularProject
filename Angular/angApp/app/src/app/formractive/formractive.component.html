@@ -1,0 +1,48 @@
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+<div class="row">
+    <input formControlName="name"  placeholder="Name" required>
+    <div class="red" *ngIf="loginForm.touched && loginForm.invalid && loginForm.get('name').hasError('required')">Please enter your name </div>
+    <div class="red" *ngIf="loginForm.get('name').hasError('minlength')"> Please enter minimum 3 charactor
+
+    </div>
+</div>
+
+<div class="row">
+    <input  formControlName="email" placeholder="Email"  required >
+    
+</div>
+
+<!-- <div class="row">
+    <input formControlName="address" placeholder="Enter your address" >
+    <div  class="red" *ngIf="loginForm.get('address').hasError('c')" >Please enter your name</div>
+</div> -->
+
+         
+<section formArrayName="items" class="grey" *ngFor="let item of items.controls; let i = index;">
+    <div [formGroupName]="i">
+        <div class="row">
+            <input formControlName="bookname" placeholder="Enter book Name"  required>
+        </div>
+      
+       <div class="row">
+                <input formControlName="description" placeholder="Enter description"  #degrees required >
+            </div>
+            
+          
+        <div class="row">
+                <input formControlName="price" placeholder="Enter price " required >
+        </div> 
+       
+    </div>
+ 
+</section>
+
+{{sum}}
+
+ <!-- loop -->
+<div class="row">
+        <button class="btn btn-primary" type="button" (click)="addItem()">Add Bookss</button>
+    
+    <button type="submit" class="btn btn-primary" >Send</button></div>
+        </form>
+        <pre>{{loginForm.value | json}}</pre>

@@ -1,0 +1,8 @@
+.navBar ul{ display: flex; width: 100%; flex-wrap: nowrap; background-color:#f1f1f1;}
+.navBar li{font: 16px/25px Arial; color:#000; list-style-type: none; padding: 5px 20px; }
+.navBar li.active{ background-color:#ddd}
+
+.logo{ background:url('/assets/images/download.png') no-repeat -4px -53px;width: 100px; height:50px
+; display:block;text-indent:-9999px;
+}
+

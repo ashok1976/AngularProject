@@ -1,0 +1,27 @@
+
+*{margin:0; padding: 0; font:100% arial}
+a{color:#000; text-decoration: none}
+ul,li{list-style: none}
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-intro {
+  font-size: large;
+}
+.w1266{max-width:1266px; width: 100%; margin: 0 auto}
+.container{width:100%; margin: 0 auto}
+.navigation{ background:#ddd;}
+.navigation ul{width:100%; overflow:auto; color:#000; max-width: 1266px; margin: 0 auto;clear:both; display:flex; flex-wrap:nowrap; justify-content: space-between;  }
+.navigation li{ min-height:30px;font:bold 14px/30px Arial; color:#000; margin: 10px;border-bottom:2px solid #ddd;}
+.navigation li a{ display: block;min-height:30px;font:bold 14px/30px Arial; color:#000}
+.navigation li.show{border-bottom:2px solid #000;}
+

@@ -1,0 +1,26 @@
+<p>{{ sub | json}}</p>
+<table>
+        <tr>
+        <th>ID</th>
+        <th>name</th>
+        <th>Email</th>
+        <th>Body</th>
+        
+        </tr>
+        
+        <tr *ngIf="sub != '' && sub != null" >
+        <td>{{sub.id}} {{ sub | json}}</td>
+        <td>{{sub.name}}</td>
+        <td>{{sub.email}}</td>
+        <td>{{sub.body}}</td>  
+        
+        
+        </tr>
+        <tr>
+         <td colspan="2" (click)="Previous()">Previous</td>
+        <td colspan="2" >Next</td>
+          
+          </tr>
+          
+        
+        </table>

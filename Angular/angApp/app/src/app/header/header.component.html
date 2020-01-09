@@ -1,0 +1,33 @@
+<div class="container">
+<div class="row ">
+<div class="col-md-2 logo"><a  routerLink="home">logo</a></div>
+<div class="col-md-5"><input type="text" class="form-control" ></div>
+<div class="col-md-5">
+ <ul class="nav float-right">
+     
+    <li class="nav-items"><a (click)="createAccount()" href="javascript:void()" class="nav-link"> Create account </a></li>
+    <li class="nav-items">
+        <a class="nav-link" routerLink="login" *ngIf="signVal"> Sing In </a>
+        <a (click)="logout()" class="nav-link" *ngIf="!signVal">Sign out</a>
+    
+    </li>
+    
+</ul>
+    
+
+</div>
+</div>
+<nav class="navBar ">
+    <ul>
+        <li><a routerLink="home">Home</a></li>
+        <li><a routerLink="product">product</a></li>
+        <li><a routerLink="parentcomponent">Parent</a></li>
+        <li><a routerLink="dashboard">Dashboard</a></li>  
+        <li> <a routerLink="formreactive">Form Reactive</a></li> 
+    </ul>
+    
+    </nav>
+</div>
+<div #parent ></div>
+
+

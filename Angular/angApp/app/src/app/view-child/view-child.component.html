@@ -1,0 +1,14 @@
+{{childMessage}}
+<p>{{birthday | date:"fullDate" }}</p>
+
+<ul>
+
+    <li *ngFor="let  val of person | data ">{{ val }}</li>
+</ul>
+
+<h5>{{count}}</h5>  
+<span #someVariable>I am span</span>
+<span>I am span</span> <br><br>
+
+{{myValue}}<br>
+<ng-content></ng-content>

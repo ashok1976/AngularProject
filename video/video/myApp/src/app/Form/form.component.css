@@ -1,0 +1,4 @@
+.data{width:100%; background:#ddd; color:#000; font: 12px/16px Arial}
+.data div{float:left; width: 23%; margin: 0 2% 10px 0; min-height: 25px}
+.data:nth-child(2n+2){background:#000;}
+.select{border:1px solid red}

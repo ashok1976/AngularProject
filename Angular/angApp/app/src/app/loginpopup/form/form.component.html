@@ -1,0 +1,82 @@
+
+<form #myForm ="ngForm" (ngSubmit)="onSubmit(myForm)">
+    <fieldset>
+   
+<div class="form-group">
+<label>Name</label>
+<input type="text" required class="form-control" name="firstname" id="firstname" 
+[(ngModel)]="model.firstname" #firstname="ngModel">
+<div *ngIf="!firstname.valid && firstname.touched      " class="error">
+    <span *ngIf="firstname.errors.required">Please enter your name</span>
+
+
+</div>
+</div>
+
+<div class="form-group">
+<label>Last Name</label>
+<input type="text" required  class="form-control" name="lastname"
+[(ngModel)]="model.lastname" #lastname="ngModel" minlength="6" >
+<div *ngIf="!lastname.valid && (lastname.touched)" class="error">
+ 
+<span *ngIf="lastname.errors.required "> Please enter your last name</span>
+<span *ngIf="lastname.errors.minlength "> Please enter your minmum 6 charactor</span>
+</div>
+</div>
+
+<div class="form-group">
+    <label>email</label>
+    <input type="text" required  class="form-control" name="email"
+    [(ngModel)]="model.email" #email="ngModel" >
+    <div  class="error" *ngIf="!email.valid && email.touched" >
+     
+        <div *ngIf="email.errors.required">Email is required</div>
+                            <div *ngIf="email.errors.email">Email must be a valid email address</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>password</label>
+        <input type="password" required  class="form-control" name="password"
+        [(ngModel)]="model.password" #password="ngModel" >
+        <div  class="error" *ngIf="!password.valid && password.touched" >
+         
+            <div *ngIf="password.errors.required">please enter your password</div>
+                             
+            </div>
+        </div>
+
+
+</fieldset>
+ <fieldset >
+ <div class="form-group">
+    <label>Street</label>
+    <input type="text" [(ngModel)]="model.street" class="form-control" 
+    name="street" #street="ngModel"  minlength="3" required>
+    <div *ngIf="!street.valid &&  street.touched" class="error">
+     <span *ngIf="street.errors.required"> Please enter your last name </span>
+     <span *ngIf="street.errors.minlength"> Please enter minmum 3 digit </span>
+    </div>
+    </div> 
+<div class="form-group">
+<label>Zip</label>
+<input type="text" class="form-control" [(ngModel)]="model.zip" name="zip" #zip="ngModel" required >
+<div *ngIf="!zip.valid && zip.touched">
+<span *ngIf="zip.errors.required"> Please enter your zip code</span>
+<span *ngIf="zip.errors.minlength"> Please enter minmum  6 charactors</span>
+
+</div>
+</div>
+
+<div class="form-group">
+    <label>City</label>
+    <input type="text" class="form-control" [(ngModel)]="model.city" name="city" #city="ngModel" required >
+    <div *ngIf="!city.valid && city.touched">
+    <span *ngIf="city.errors.required"> Please enter your zip code</span>
+    
+    </div>
+    </div> 
+
+</fieldset>
+
+<button type="submit" class="btn btn-primary"[disabled]="!myForm.valid" >Submit</button>
+</form>

@@ -1,0 +1,43 @@
+<input [(ngModel)]="searchText" placeholder="search text goes here"> {{searchText}}
+<ul>
+  <li *ngFor="let c of characters | filter : searchText">
+    {{c}}
+  </li>
+</ul>
+
+
+
+<ul class="list">
+
+    {{birthday | date:'dd/MM/yyyy' | uppercase }}<br>
+    {{ 1234.56 | currency:'USD' }}<br><br><br>
+
+    <br><br><br>
+
+  <li *ngFor="let user of users; let flag = even" [ngClass]="{'one': !flag}">
+      {{ user | myPipe : "Subject " :" get the number" }}
+    
+   </li>
+</ul>  
+{{couter}} =p==== {{behaviour}}
+<app-children (changeValue) ="data($event)"></app-children>
+
+<ul *ngFor ="let p of people; let index = index" [ngSwitch]="p.age">
+<li *ngSwitchCase="'32'">{{p.country}}</li>
+
+</ul>
+
+
+<ul>
+  <li *ngFor="let a of ages | FilterPipe">{{a}}</li>
+  <li *ngFor="let arr of myArr | remove">{{arr}}</li>
+  
+</ul>
+
+
+
+<div *ngFor ="let p of myData"  [ngStyle]="addStyles()" style="padding:0 10px 10px 10px;">
+  <h4>{{p.title}}</h4>
+  <p>{{p.body }}</p>
+    
+  </div>

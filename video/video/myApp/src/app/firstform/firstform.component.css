@@ -1,0 +1,3 @@
+.fomRow{width:100%; clear: both; padding:0 20px; margin: 0 0 10px}
+.fomRow label{display:block}
+.fomRow input{ width:100%; height:25px; border:1px solid #ddd; background: #fff; }

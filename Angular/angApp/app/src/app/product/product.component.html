@@ -1,0 +1,58 @@
+
+<table width="100%">
+   <tr>
+      <th width="25%">Id</th>
+      <th  width="25%">Name</th>
+      <th  width="25%">capital</th>
+      <th  width="25%">currency</th>
+   </tr>
+   <tr *ngFor="let country of countries">
+      <td> <a (click)= "resolveData(country.countryId)">{{country.countryId}} </a></td>
+      <td>{{country.name}}</td>
+      <td>{{country.capital}}</td>
+      <td>{{country.currency}}</td>
+</tr>
+</table>
+<table>
+   <tr>
+      <th>ID</th>
+      <th>name</th>
+      <th>Email</th>
+      <th>Body</th>
+   </tr>
+   <tr *ngFor="let comment of postComment | slice:0 :10;">
+      <td> <a (click)= "Data(comment.id)">{{comment.id}} </a></td>
+      <td>{{comment.name}}</td>
+      <td>{{comment.email}}</td>
+      <td>{{comment.body}}</td>
+
+   </tr>
+</table>
+
+
+
+<!-- <ul>
+        <li *ngFor="let hero of HEROES" [class.selected]="hero === selectedHero" (click)="onSelected(hero)">
+                {{hero.id}}  {{hero.name}}
+            </li>
+
+          
+            <ng-template #loading>
+               Loading....
+               
+               </ng-template>
+           
+<ng-container *ngIf="post else loading" >
+<li *ngFor="let p of post | slice: startrRange : endRange; let i = index; trackBy:trackById"  [ngStyle]="{'background-color': i % 2 == 0 ? '#f1f2f2':'3f6f6f6'}" >
+    {{i+1}} {{p.title}}
+</li>
+
+
+</ng-container>
+
+
+<button *ngIf="show"  (click)="read()">ReadMore</button>
+</ul> -->
+
+
+

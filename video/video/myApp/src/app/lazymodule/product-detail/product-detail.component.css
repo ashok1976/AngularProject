@@ -1,0 +1,5 @@
+table{font:14px Arial; width:90%; align:center; color:#000; border:1px solid #ddd;}
+table tr:nth-child(odd){ background: #f1f1f1; }
+table tr th{ border-bottom: 1px solid #ddd; }
+table tr th,table tr td{ padding:8px 10px; border-right:1px solid #ddd }
+.w995{ width:995px; margin: 0 auto}
