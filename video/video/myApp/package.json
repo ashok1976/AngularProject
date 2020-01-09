@@ -26,7 +26,7 @@
     "@angular/router": "^6.1.0",
     "@nguniversal/express-engine": "^7.1.1",
     "@nguniversal/module-map-ngfactory-loader": "^7.1.1",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^3.4.1",
     "cookie-parser": "^1.4.3",
     "core-js": "^2.5.4",
     "express": "^4.16.4",
