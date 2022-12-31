@@ -33,11 +33,11 @@
     "mysql": "^2.16.0",
     "rxjs": "~6.2.0",
     "set-cookie-parser": "^2.2.1",
-    "ts-loader": "^4.5.0",
+    "ts-loader": "^9.4.2",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.8.0",
+    "@angular-devkit/build-angular": "~15.0.4",
     "@angular/cli": "~6.2.4",
     "@angular/compiler-cli": "^6.1.0",
     "@angular/language-service": "^6.1.0",
